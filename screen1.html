@@ -1,18 +1,31 @@
+<!DOCTYPE html>
+
 <html>
-	<head>
-		<title> screen1 </title>
-	</head>
-	<body>
-		<center>
+<head>
+	<title> screen1 </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+	<style>
+		div.rectangle{
+			width:300px;
+			height:200px;
+			border-style: solid;
+			float: center;
+		}
+	</style>
+</head>
+<body>
+	<center>
 		<!-- Still needs include form actions -->
-		<!-- Add CSS to center login and add border -->
-		<form>
-			Userid: <br>
-			<input type = "text" name = "loginID"> <br>
-			Password: <br>
-			<input type = "text" name = "password"><br>
-			<input type = "submit" value = "Login">
-		</form>
-		</center>
-	</body>
+		<div class = "rectangle">
+			<form>
+				Userid: <br>
+				<input type = "text" name = "loginID"> <br>
+				Password: <br>
+				<input type = "text" name = "password"><br>
+				<input type = "submit" value = "Login">
+			</form>
+		</div>
+	</center>
+</body>
 </html>
