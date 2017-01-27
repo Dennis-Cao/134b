@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<style>
+    div.content{
+     width:100%;
+     float:left;
+     display:inline;
+
+    }
+    figure {
+        float: left;
+    }
+    form {
+        float: left;
+    }
+    div.rectangle{
+        width:400px;
+        height:300px;
+        border-style: solid;
+        float: left;
+    }
+    .container {
+    }
+
+    .container:before,
+    .container:after {
+        content: "";
+        display: table;
+    }
+
+    .container:after {
+        clear: both;
+    }
+</style>
+<div>
+	<form>
+	  <input type="text" name="search"placeholder = "Enter player name">
+	</form> 
+    <button type="button">Players by Team</button>
+    <button type="button">Players by Position</button>
+</div>
+<hr>
+<p>
+	Current players on watchlist:
+</p>
+<div class="container">
+    <div class="content">
+    	<figure>
+    		<img src = "images/manning_peyton.png" width="80" height="75">
+    		<figcaption> Peyton Manning </figcaption>
+    	</figure>
+    	<figure>
+    		<img src = "images/brett_favre.jpg" width="80" height="75">
+    		<figcaption> Brett Favre </figcaption>
+    	</figure>
+        <figure>
+            <img src = "images/jamarcus.jpg" width="80" height="75">
+            <figcaption> Jamarcus Russell </figcaption>
+        </figure>
+        <figure>
+            <img src = "images/manziel.jpg" width="80" height="75">
+            <figcaption> Johnny Manziel </figcaption>
+        </figure>
+        <figure>
+            <img src = "images/vick.jpg" width="80" height="75">
+            <figcaption> Michael Vick </figcaption>
+        </figure>
+        <table>
+            <tr>
+                <td><button type="button">More...</button></td>
+            </tr>
+            <tr>
+                <td><button type="button">Remove.</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class = "container">
+    <div class = "rectangle">
+        <h2>Comments:</h2>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <form>
+          <input type="text" name="comment"placeholder = "Enter comment here" >
+        </form> 
+    </div>
+
+    <div class = "rectangle">
+        <h2>News:</h2>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+    </div>
+</div>
+
+</html>
