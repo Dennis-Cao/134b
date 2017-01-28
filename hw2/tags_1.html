@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Testing_tags </title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	</head>
+	<body>
+		<!-- <a> tag creates a hyperlink to another page-->
+		<a href="https://ucsd.edu/"> This is an anchor tag, Come visit UCSD! </a> <br>
+
+		<!-- <abbr> tag defines an abbreviation or an acronym -->
+		Using abbreviation tag. We go to <abbr title = "University of California, San Diego"> UCSD (UCSD is abbreviated) </abbr>! <br>
+
+		<!-- The <address> tag defines information usually addresses and other contact information. Usually found in body and makes it look fancy -->
+		<address>
+		Use of address tag defines contact information and text <br>
+		1234 fake street <br>
+		La Jolla <br>
+		92069 <br>
+		California 
+		</address>	
+
+		The "area" tag allows users to click locations inside image as links. Similar to map tags. map tags are inside and nested in the area tag <br>
+		Click lefttop side of image to go somewhere else ! <br>
+		<img src = "ravens.png" width="200" height="200" alt = "test" usemap="#football">
+		<map name = "football">
+  		<area shape = "rect" coords="0,0,100,100" href="browns.png" alt = "test2">
+		</map>
+
+		<br>
+
+		<!-- The <article> tag specifies separate text. We also include bold <b> tags. similar to a paragraph tag -->
+
+		<article>
+			<h1> Header 1 </h1>
+			<p>
+			<b> This is an article tag. The "article" tag specifies separate text. We also include bold "b" tags. similar to usage like paragraph tag  </b>
+			<p>
+		</article> 
+
+		<!-- The <aside> tag defines some text that is normally placed aside or not the focus -->
+		This is normal text
+		<aside>
+		<em> This is aside text with em (emphasis) tag. </em> (information in aside is usually stand-alone information. doesnt show here)
+		</aside>
+
+		<!-- The <audio> tag defines sound, such as music or other audio streams -->
+		This is a <dfn> sample audio tag </dfn> to play music if wanted with dfn tags to define instances of terms. <br>
+		<audio controls>
+  			<source src="sample.ogg" type="audio/ogg">
+		</audio> <br>
+
+		<!-- BDI stands for Bi-Directional Isolation.
+		The <bdi> tag isolates a part of text that might be formatted in a different direction from other text outside it such as Chinese/Arabic/Foreign languages -->
+		The HTML "bdi" tag is ususally used on text that is in different formation (left to right or right to left languages) and formats it to left to right. English is not affected <br>
+
+		The "bdo" tag is used to override and change the current text direction. <bdo dir="rtl"> this text will be flipped </bdo> <br>
+
+		<!-- The <blockquote> tag specifies a section that is quoted from a third party or if you want to just label it with descriptions -->
+
+		Sample of blockquote tag:
+		<blockquote>
+			<i> This is inside a blockquote tag. Can include citations inside if wanted. Also is used italicized by using "i" tag </i>
+		</blockquote>
+
+		<!-- The <caption> tag defines and provides a table caption -->
+		Sample of caption tag labeling a table along with use of col and colgroup tags <br>
+		<table>
+		<caption> caption: 1x2 table </caption>
+			<colgroup>
+    			<col span="2" style="background-color:yellow">
+    			<col style="background-color:yellow">
+  			</colgroup>
+  			<tr> 
+  				<th> money </th>
+			<td> $1,000 dollars </td>
+			<td> $2,000 dollars </td>
+			</tr>
+		</table>
+		<!-- The <cite> tag defines and provides the title of a work and notes it -->
+		Use of cite tag: <cite> Starwars </cite> <br>
+
+		<!-- The <code> tag is a phrase tag. It shows that its a form of computer code-->
+		Use of code tag: <code> this is coded text </code> <br>
+
+		The "embed" tag defines a container for an external application or imported work if wanted. This works similar to the object tag and would go here also !
+		<embed src = "filenamegohere.swf">
+		<br>
+		An embed file would go above here <br>
+
+		The "fieldset" tag is used to group together similar data or text as seen below: <br>
+		<fieldset>
+			name <br>
+			birthday <br>
+			address
+		</fieldset>
+
+		The "footer" tag defines a footer for text/sections/documents as seen below:
+		<footer> This is inside a footer tag </footer>
+
+		The "header" element is a container for text/sections/documents to user <br>
+		<header> TEST HEADER </header>
+		<h4> This is using header 4 (These are inside a header tag) </h4>
+		<h6> This is using header 6 (These are inside a header tag) </h6>
+		
+
+		This is testing an iframe tag. Creates an inline frame. An inline frame is essentially a mini frame of another third party site on page. This is an inline frame of UCSD homepage. <br>
+		<iframe src="https://ucsd.edu/">
+		</iframe> <br>
+
+		The "ins" tag defines text phrases that have been inserted with use of deleted tags: <br>
+		My name is <del>Jeffrey</del> <ins> Snoop Dog </ins>. <br>
+
+		The "kbd" tag is denotes that it is a form of keyboard input. <br>
+		<kbd> This is kbd text </kbd> <br>
+
+		This is use of label that defines a label for inputs from users with use of legend tag. Legend gives a name caption for fieldset
+		<form>
+		<fieldset>
+		<legend> Legend name </legend>
+		<label> users </label>
+			<input type = "text">
+		</fieldset>
+		</form>
+
+		<main>
+			This is inside a main tag! main tag is used to denote main context of a page
+		</main>
+
+		This sentence includes <mark> tags which is denoted here! </mark>Marked tags highlight parts that you want to identify! <br>
+
+		Marquee tags used for scrolling pieces of information in certain directions inputted by designer. Cant be used in html5 <br>
+
+		This is an example of a meter with a 5 parameter.
+
+		<meter value = "5" min = "0" max = "10"> </meter> <br>
+
+		These are inside "nav" tags use to navigate link tags !
+		<nav>
+			<a href="https://www.google.com/"> google </a> | 
+			<a href="https://www.yahoo.com/"> yahoo </a> 
+		</nav>
+
+		There is such thing as a "noscript tag" used to denote to users if they have a browser that does not have proper scripts or disabled scripted denoted here. (only shows if browser does not have the proper scripts)
+		<noscript>
+			You have no scripts
+		</noscript> <br>
+
+		This is an ordered list of TV shows with use of data field values. <br>
+		<ol>
+			<li><data value = "100"> South Park </data> </li>
+			<li> American Dad </li>
+			<li> Simpsons </li>
+		</ol> <br>
+
+		This is using descriptive list tags and defining terms and data. Similar to list!
+		<dl>
+			<dt> States </dt>
+				<dd> California, Texas, New York </dd>
+
+			<dt> Countries </dt>
+				<dd> USA, China, Japan </dd>
+		</dl>
+
+	</body>
+</html>
