@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <style type="text/css">
+        tr {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        td {
+            float: right;
+        }
+
+        td a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        #firstTD{
+            float:left;
+        }
+        td a:hover:not(.active) {
+            background-color: #1abc9c;
+        }
+    </style>
+</head>
+<table style="width:100%">
+    <tr>
+        <td id="firstTD"><a href="home"> home </td>
+        <td id="secondary">
+            <FORM ACTION="remove_players.html">
+                <input type="text" name="comment" placeholder = "Enter comment here" >
+            </FORM>
+        </td>
+        <td id="secondary"><a href="home"> Remove players from watchlist </td>
+        <td id="secondary"><a href="home"> Choose team </td>
+        <td id="secondary"><a href="home"> Choose players </td>
+        
+    </tr>
+
+
+</table>
+<div>
+	<form>
+	  <input type="text" name="search" placeholder = "Enter player name">
+	</form> 
+    <FORM ACTION="choose_team.html">
+        <INPUT TYPE="submit" VALUE="Players by Team">
+    </FORM>
+    <FORM ACTION="choose_position.html">
+        <INPUT TYPE="submit" VALUE="Players by Position">
+    </FORM>
+</div>
+<hr>
+<p>
+	Current players on watchlist:
+</p>
+<div class="container">
+    <div class="content">
+        <a href="player_stats.html">
+        	<figure>
+        		<img src = "images/manning_peyton.png" width="80" height="75" >
+        		<figcaption> Peyton Manning </figcaption>
+        	</figure>
+        </a>
+        <a href="player_stats.html">
+        	<figure>
+        		<img src = "images/brett_favre.jpg" width="80" height="75">
+        		<figcaption> Brett Favre </figcaption>
+        	</figure>
+        </a>
+        <a href="player_stats.html">
+            <figure>
+                <img src = "images/jamarcus.jpg" width="80" height="75">
+                <figcaption> Jamarcus Russell </figcaption>
+            </figure>
+        </a>
+        <a href="player_stats.html">
+            <figure>
+                <img src = "images/manziel.jpg" width="80" height="75">
+                <figcaption> Johnny Manziel </figcaption>
+            </figure>
+        </a>
+        <a href="player_stats.html">
+            <figure>
+                <img src = "images/vick.jpg" width="80" height="75">
+                <figcaption> Michael Vick </figcaption>
+            </figure>
+        </a>
+        <table>
+            <tr>
+                    <td>
+                        <FORM ACTION="remove_players.html">
+                            <INPUT TYPE="submit" VALUE="More...">
+                        </FORM>
+                    </td>
+            </tr>
+            <tr>
+                <td><button type="button">Remove.</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class = "container">
+    <div class = "rectangle">
+        <h2>Comments:</h2>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <p>Random person's comment here</p>
+        <form>
+          <input type="text" name="comment" placeholder = "Enter comment here" >
+        </form> 
+    </div>
+
+    <div class = "rectangle">
+        <h2>News:</h2>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+        <p>News article about player on watchlist here</p>
+    </div>
+</div>
+
+</html>
