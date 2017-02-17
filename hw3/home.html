@@ -29,6 +29,13 @@
         td a:hover:not(.active) {
             background-color: #1abc9c;
         }
+        div.container { overflow: hidden; }
+        div.content a, div.content{float: left; }
+        div.rectangle { 
+            float: left; 
+            width: 40%;
+            border-style: ridge;
+        }
     </style>
 </head>
 <table style="width:100%">
@@ -47,16 +54,22 @@
 
 
 </table>
-<div>
-	<form>
-	  <input type="text" name="search" placeholder = "Enter player name">
-	</form> 
-    <FORM ACTION="choose_team.html">
-        <INPUT TYPE="submit" VALUE="Players by Team">
-    </FORM>
-    <FORM ACTION="choose_position.html">
-        <INPUT TYPE="submit" VALUE="Players by Position">
-    </FORM>
+<div class = "container">
+    <div class="content">
+    	<form>
+    	  <input type="text" name="search" placeholder = "Enter player name">
+    	</form> 
+    </div>
+    <div class="content">
+        <FORM ACTION="choose_team.html">
+            <INPUT TYPE="submit" VALUE="Players by Team">
+        </FORM>
+    </div>
+    <div class="content">
+        <FORM ACTION="choose_position.html">
+            <INPUT TYPE="submit" VALUE="Players by Position">
+        </FORM>
+    </div>
 </div>
 <hr>
 <p>
@@ -97,13 +110,13 @@
         <table>
             <tr>
                     <td>
-                        <FORM ACTION="remove_players.html">
-                            <INPUT TYPE="submit" VALUE="More...">
-                        </FORM>
+                        <button type="button">More ...</button>
                     </td>
             </tr>
             <tr>
-                <td><button type="button">Remove.</button></td>
+                <td><FORM ACTION="remove_players.html">
+                            <INPUT TYPE="submit" VALUE="Remove...">
+                        </FORM></td>
             </tr>
         </table>
     </div>
