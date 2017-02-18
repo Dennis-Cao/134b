@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>Roster Page</title>
+		<style type="text/css">
+			body {
+				background-image: url("images/nfl-football-field.jpg");
+				background-size: 100%;
+			    margin: 0px;
+			}
+			h1 {width:90%; margin:auto; text-align: center;}
+			h3 {width:90%; margin:auto; text-align: center;}
+			h4 { text-align: center;}
+
+			tr.nav {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #333;
+			}
+
+			td.secondary {
+			    float: right;
+			}
+
+			td.secondary a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+
+			#firstTD{
+				float:left;
+			}
+
+			td.secondary a:hover:not(.active) {
+			    background-color: #1abc9c;
+			}
+
+			th.roster {
+			    display:table-cell;
+			    vertical-align:top;
+			    height:30px;
+			}
+
+			th.roster div a:hover:not(.active) {
+			    background-color: #1abc9c;
+			}
+
+			table th div {
+			    height:100%;
+			    background-color: rgba(255, 255, 255, 0.39);
+			}
+		</style>
+	</head>
+		<body>
+			<table style="width:100%">
+				<tr class="nav">
+					<td class="secondary" id="firstTD"><a href="home"> Home </td>
+					<td class="secondary">
+							<FORM ACTION="remove_players.html">
+					            <input type="text" name="comment" placeholder = "Search Player" style="height:40px;">
+					        </FORM>
+				    </td>
+					<td class="secondary"><a href="home"> Remove Players From Watchlist </td>
+					<td class="secondary"><a href="home"> Choose team </td>
+					<td class="secondary"><a href="home"> Choose players </td>					
+				</tr>
+			</table>
+			<!-- Title -->
+			<h1>Roster Page</h1>
+			<h3>San Diego Chargers</h3>
+
+		<!-- roster -->
+		<!-- QB -->
+			<table style="width:100%">
+				<tr>
+					<th class="roster">
+						<div>
+						<h4>Quarterbacks</h4>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">
+								<figcaption>Phillip Rivers</figcaption>
+							</figure>
+						</a>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Kellen Clemens Image Goes Here" height="42" width="42">
+								<figcaption>Kellen Clemens</figcaption>
+							</figure>
+						</a>
+						</div>
+					</th>
+					<th class="roster">
+						<div>
+						<h4>Wide Recievers</h4>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Keenan Allen Image Goes Here" height="42" width="42">
+								<figcaption>Kennan Allen</figcaption>
+							</figure>
+						</a>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Tyrell Williams goes here" height="42" width="42">
+								<figcaption>Tyrell Williams</figcaption>
+							</figure>
+						</a>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Travis Benjamin goes here" height="42" width="42">
+								<figcaption>Travis Benjamin</figcaption>
+							</figure>
+						</a>
+						</div>
+					</th>
+					<th class="roster">
+						<div>
+						<h4>Running Backs</h4>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Melvin Gordon Image Goes Here" height="42" width="42">
+								<figcaption>Melvin Gordon</figcaption>
+							</figure>
+						</a>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Danny Woodhead goes here" height="42" width="42">
+								<figcaption>Danny Woodhead</figcaption>
+							</figure>
+						</a>
+						</div>
+					</th>
+				</tr>
+				<tr>
+					<th class="roster">
+						<div>
+						<h4>OG</h4>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Kellen Clemens Image Goes Here" height="42" width="42">
+								<figcaption>Kellen Clemens</figcaption>
+							</figure>
+						</a>
+						</div>
+					</th>
+					<th class="roster">
+						<div>
+						<h4>OT</h4>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Keenan Allen Image Goes Here" height="42" width="42">
+								<figcaption>Kennan Allen</figcaption>
+							</figure>
+						</a>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Tyrell Williams goes here" height="42" width="42">
+								<figcaption>Tyrell Williams</figcaption>
+							</figure>
+						</a>
+						</div>
+					</th>
+					<th class="roster">
+						<div>
+						<h4>Center</h4>
+						<a href="player_stats.html">
+							<figure>
+								<img src="images/generic.png" alt="Melvin Gordon Image Goes Here" height="42" width="42">
+								<figcaption>Melvin Gordon</figcaption>
+							</figure>
+						</a>
+						</div>
+					</th>
+				</tr>
+			</table>
+	</body>
+	<footer>
+
+	</footer>
+</html>
