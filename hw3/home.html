@@ -36,115 +36,152 @@
             width: 40%;
             border-style: ridge;
         }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/layout-background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+            opacity: 0.8;
+            filter:alpha(opacity=80);
+        }
+        #wrapper {
+            margin: auto;
+            text-align: left;
+            position: relative;
+        }
+        input.test{
+            background-color: dodgerblue;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        input.test:hover, input.test:active{
+            background-color: steelblue;
+        }
+        body{
+            /*background: #000;*/
+        }
     </style>
 </head>
-<table style="width:100%">
-    <tr>
-        <td id="firstTD"><a href="home"> home </td>
-        <td id="secondary">
-            <FORM ACTION="remove_players.html">
-                <input type="text" name="comment" placeholder = "Enter comment here" >
+
+<div id="background"></div>
+<div id = "wrapper">
+<body>
+    <table style="width:100%">
+        <tr>
+            <td id="firstTD"><a href="home"> home </td>
+            <td id="secondary">
+                <FORM ACTION="remove_players.html">
+                    <input type="text" name="comment" placeholder = "Enter comment here" >
+                </FORM>
+            </td>
+            <td id="secondary"><a href="home"> Remove players from watchlist </td>
+            <td id="secondary"><a href="home"> Choose team </td>
+            <td id="secondary"><a href="home"> Choose players </td>
+            
+        </tr>
+
+
+    </table>
+    <div class = "container">
+        <div class="content">
+        	<form>
+        	  <input type="text" name="search" placeholder = "Enter player name">
+        	</form> 
+        </div>
+        <div class="content">
+            <FORM ACTION="choose_team.html">
+                <INPUT class="test" TYPE="submit" VALUE="Players by Team">
             </FORM>
-        </td>
-        <td id="secondary"><a href="home"> Remove players from watchlist </td>
-        <td id="secondary"><a href="home"> Choose team </td>
-        <td id="secondary"><a href="home"> Choose players </td>
-        
-    </tr>
+        </div>
+        <div class="content">
+            <FORM ACTION="choose_position.html">
+                <INPUT TYPE="submit" VALUE="Players by Position">
+            </FORM>
+        </div>
+    </div>
+    <hr>
+    <p>
+    	Current players on watchlist:
+    </p>
+    <div class="container">
+        <div class="content">
+            <a href="player_stats.html">
+            	<figure>
+            		<img src = "images/manning_peyton.png" width="80" height="75" >
+            		<figcaption> Peyton Manning </figcaption>
+            	</figure>
+            </a>
+            <a href="player_stats.html">
+            	<figure>
+            		<img src = "images/brett_favre.jpg" width="80" height="75">
+            		<figcaption> Brett Favre </figcaption>
+            	</figure>
+            </a>
+            <a href="player_stats.html">
+                <figure>
+                    <img src = "images/jamarcus.jpg" width="80" height="75">
+                    <figcaption> Jamarcus Russell </figcaption>
+                </figure>
+            </a>
+            <a href="player_stats.html">
+                <figure>
+                    <img src = "images/manziel.jpg" width="80" height="75">
+                    <figcaption> Johnny Manziel </figcaption>
+                </figure>
+            </a>
+            <a href="player_stats.html">
+                <figure>
+                    <img src = "images/vick.jpg" width="80" height="75">
+                    <figcaption> Michael Vick </figcaption>
+                </figure>
+            </a>
+            <table>
+                <tr>
+                        <td>
+                            <button type="button">More ...</button>
+                        </td>
+                </tr>
+                <tr>
+                    <td><FORM ACTION="remove_players.html">
+                                <INPUT TYPE="submit" VALUE="Remove...">
+                            </FORM></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
+    <div class = "container">
+        <div class = "rectangle">
+            <h2>Comments:</h2>
+            <p>Random person's comment here</p>
+            <p>Random person's comment here</p>
+            <p>Random person's comment here</p>
+            <p>Random person's comment here</p>
+            <p>Random person's comment here</p>
+            <form>
+              <input type="text" name="comment" placeholder = "Enter comment here" >
+            </form> 
+        </div>
 
-</table>
-<div class = "container">
-    <div class="content">
-    	<form>
-    	  <input type="text" name="search" placeholder = "Enter player name">
-    	</form> 
+        <div class = "rectangle">
+            <h2>News:</h2>
+            <p>News article about player on watchlist here</p>
+            <p>News article about player on watchlist here</p>
+            <p>News article about player on watchlist here</p>
+            <p>News article about player on watchlist here</p>
+            <p>News article about player on watchlist here</p>
+            <p>News article about player on watchlist here</p>
+            <p>News article about player on watchlist here</p>
+        </div>
     </div>
-    <div class="content">
-        <FORM ACTION="choose_team.html">
-            <INPUT TYPE="submit" VALUE="Players by Team">
-        </FORM>
-    </div>
-    <div class="content">
-        <FORM ACTION="choose_position.html">
-            <INPUT TYPE="submit" VALUE="Players by Position">
-        </FORM>
-    </div>
+</body>
 </div>
-<hr>
-<p>
-	Current players on watchlist:
-</p>
-<div class="container">
-    <div class="content">
-        <a href="player_stats.html">
-        	<figure>
-        		<img src = "images/manning_peyton.png" width="80" height="75" >
-        		<figcaption> Peyton Manning </figcaption>
-        	</figure>
-        </a>
-        <a href="player_stats.html">
-        	<figure>
-        		<img src = "images/brett_favre.jpg" width="80" height="75">
-        		<figcaption> Brett Favre </figcaption>
-        	</figure>
-        </a>
-        <a href="player_stats.html">
-            <figure>
-                <img src = "images/jamarcus.jpg" width="80" height="75">
-                <figcaption> Jamarcus Russell </figcaption>
-            </figure>
-        </a>
-        <a href="player_stats.html">
-            <figure>
-                <img src = "images/manziel.jpg" width="80" height="75">
-                <figcaption> Johnny Manziel </figcaption>
-            </figure>
-        </a>
-        <a href="player_stats.html">
-            <figure>
-                <img src = "images/vick.jpg" width="80" height="75">
-                <figcaption> Michael Vick </figcaption>
-            </figure>
-        </a>
-        <table>
-            <tr>
-                    <td>
-                        <button type="button">More ...</button>
-                    </td>
-            </tr>
-            <tr>
-                <td><FORM ACTION="remove_players.html">
-                            <INPUT TYPE="submit" VALUE="Remove...">
-                        </FORM></td>
-            </tr>
-        </table>
-    </div>
-</div>
-
-<div class = "container">
-    <div class = "rectangle">
-        <h2>Comments:</h2>
-        <p>Random person's comment here</p>
-        <p>Random person's comment here</p>
-        <p>Random person's comment here</p>
-        <p>Random person's comment here</p>
-        <p>Random person's comment here</p>
-        <form>
-          <input type="text" name="comment" placeholder = "Enter comment here" >
-        </form> 
-    </div>
-
-    <div class = "rectangle">
-        <h2>News:</h2>
-        <p>News article about player on watchlist here</p>
-        <p>News article about player on watchlist here</p>
-        <p>News article about player on watchlist here</p>
-        <p>News article about player on watchlist here</p>
-        <p>News article about player on watchlist here</p>
-        <p>News article about player on watchlist here</p>
-        <p>News article about player on watchlist here</p>
-    </div>
-</div>
-
 </html>
