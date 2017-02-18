@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title> Choose Position </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+	<style type="text/css">
+		body{
+			margin: 0px;
+		}
+
+		button{
+			padding: 15px 20px;
+			background: skyblue;
+			color: white;
+			width: 100%;
+		}
+
+		h2{
+			text-align: center;
+		}
+
+		table.center {
+			margin-top: 5%;
+			margin-left:auto; 
+			margin-right:auto;
+		}
+		
+		h1 {width:90%; margin:auto; text-align: center;}
+		h3 {width:90%; margin:auto; text-align: center;}
+		h4 { text-align: center;}
+
+
+		tr.nav {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		td.secondary {
+			float: right;
+		}
+
+		td.secondary a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		#firstTD{
+			float:left;
+		}
+
+		td.secondary a:hover:not(.active) {
+			background-color: #1abc9c;
+		}
+
+	</style>
+</style>
+</head>
+<body>
+	<table style="width:100%">
+		<tr class="nav">
+			<td class="secondary" id="firstTD"><a href="home"> Home </td>
+			<td class="secondary">
+				<FORM ACTION="remove_players.html">
+					<input type="text" name="comment" placeholder = "Search Player" style="height:40px;">
+				</FORM>
+			</td>
+			<td class="secondary"><a href="home"> Remove Players From Watchlist </td>
+			<td class="secondary"><a href="home"> Choose team </td>
+			<td class="secondary"><a href="home"> Choose players </td>					
+		</tr>
+	</table>
+	<h2> Search By Position: </h2>
+	<table class="center">
+		<tr>
+			<td>
+				<button type = "button"> Running Backs </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Quarterback </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Offensive linemen </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Wide Receivers </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Defensive Line </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Linebackers </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Tight End </button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button type = "button"> Kickers </button>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
