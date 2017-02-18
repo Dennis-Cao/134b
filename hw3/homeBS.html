@@ -13,25 +13,6 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <style type="text/css">
 
-        
-        #background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/layout-background.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100%;
-            opacity: 0.8;
-            filter:alpha(opacity=80);
-        }
-        #wrapper {
-            margin: auto;
-            text-align: left;
-            position: relative;
-        }
     </style>
 </head>
 
@@ -70,7 +51,92 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <p>TEST</p>
+    <div class="container">
+        <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter Player Name">
+            </div>
+        </form>
+        <button type="submit" class="btn btn-default">Players by Team</button>
+        <button type="submit" class="btn btn-default">Players by Position</button>
+        <hr></hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <a href="player_stats.html">
+                     <figure class="figure">
+                        <img src="images/manning_peyton.png" class="figure-img img-fluid rounded" width="80" height="75">
+                        <figcaption class="figure-caption">Peyton Manning</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-sm-2">
+                <a href="player_stats.html">
+                     <figure class="figure">
+                        <img src="images/brett_favre.jpg" class="figure-img img-fluid rounded" width="80" height="75">
+                        <figcaption class="figure-caption">Brett Favre</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-sm-2">
+                <a href="player_stats.html">
+                     <figure class="figure">
+                        <img src="images/jamarcus.jpg" class="figure-img img-fluid rounded" width="80" height="75">
+                        <figcaption class="figure-caption">Jamarcus Russell</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-sm-2">
+                <a href="player_stats.html">
+                     <figure class="figure">
+                        <img src="images/manziel.jpg" class="figure-img img-fluid rounded" width="80" height="75">
+                        <figcaption class="figure-caption">Johnny Football</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-sm-2">
+                <a href="player_stats.html">
+                     <figure class="figure">
+                        <img src="images/vick.jpg" class="figure-img img-fluid rounded" width="80" height="75">
+                        <figcaption class="figure-caption">Michael Vick</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-default">More...</button>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-default">Remove...</button>
+            </div>
+
+        </div>
+        <hr></hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Comments</h3>
+                <p>Random person's comment here</p>
+                <p>Random person's comment here</p>
+                <p>Random person's comment here</p>
+                <p>Random person's comment here</p>
+                <p>Random person's comment here</p>
+                <br></br>
+                <div class="form-group">
+                    <label for="exampleTextarea">Submit Comment</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+                <h3>News</h3>
+                <p>News article about player on watchlist here</p>
+                <p>News article about player on watchlist here</p>
+                <p>News article about player on watchlist here</p>
+                <p>News article about player on watchlist here</p>
+                <p>News article about player on watchlist here</p>
+                <p>News article about player on watchlist here</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
