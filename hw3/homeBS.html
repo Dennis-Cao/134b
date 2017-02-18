@@ -47,7 +47,7 @@
             <li><a href="Choose_positionBS.html">Choose Position</a></li>
             <li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
             <li>
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-left" action="search_resultsBS.html">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Search">
                     </div>
@@ -64,8 +64,12 @@
               <input type="text" class="form-control" placeholder="Enter Player Name">
             </div>
         </form>
-        <button type="submit" class="btn btn-default">Players by Team</button>
-        <button type="submit" class="btn btn-default">Players by Position</button>
+        <a href="Choose_teamBS.html">
+            <button type="submit" class="btn btn-default">Players by Team</button>
+        </a>
+        <a href="Choose_positionBS.html">
+            <button type="submit" class="btn btn-default">Players by Position</button>
+        </a>
         <hr></hr>
     </div>
     <div class="container">
@@ -114,7 +118,9 @@
                 <button type="submit" class="btn btn-default">More...</button>
             </div>
             <div class="col-sm-1">
-                <button type="submit" class="btn btn-default">Remove...</button>
+                <a href="remove_playersBS.html">
+                    <button type="submit" class="btn btn-default">Remove...</button>
+                </a>
             </div>
 
         </div>
