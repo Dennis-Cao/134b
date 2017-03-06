@@ -53,9 +53,29 @@
 					</div>
 
 					<a href="register_pageBS.html"> <button class="btn btn-block btn-lg btn-primary" type="button"> Register </button> </a>
+					
 				</form>
-
-				
+				<button class="btn btn-block btn-lg btn-primary" onclick = "googleSignin()">Google Signin</button>
+				<script>
+					var provider = new firebase.auth.GoogleAuthProvider();
+					function googleSignin() {
+					   firebase.auth()
+					   
+					   .signInWithPopup(provider).then(function(result) {
+					      var token = result.credential.accessToken;
+					      var user = result.user;
+							
+					      console.log(token)
+					      console.log(user)
+					   }).catch(function(error) {
+					      var errorCode = error.code;
+					      var errorMessage = error.message;
+							
+					      console.log(error.code)
+					      console.log(error.message)
+					   });
+					}
+				</script>
 
 				<div class="modal-footer">
 					<div class="col-md-12">
