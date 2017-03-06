@@ -85,7 +85,7 @@ function signin() {
 firebase.auth().onAuthStateChanged(user => {
   if(user) {
   	console.log(user);
-    // window.location = 'homeBS.html'; //After successful login, user will be redirected to home.html
+    window.location = 'homeBS.html'; //After successful login, user will be redirected to home.html
   }
   else{
   	console.log('not logged in');
