@@ -27,49 +27,7 @@
 		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
-	    authDomain: "cse-134b-103ee.firebaseapp.com",
-	    databaseURL: "https://cse-134b-103ee.firebaseio.com",
-	    storageBucket: "cse-134b-103ee.appspot.com",
-	    messagingSenderId: "737274665905"
-	  };
-	  //firebase.initializeApp(config);
-
-	  // Initialize the default app
-		var defaultApp = firebase.initializeApp(config);
-		console.log(typeof defaultApp); 
-		console.log(defaultApp.name);  // "[DEFAULT]"
-
-		// You can retrieve services via the defaultApp variable...
-		//var defaultStorage = defaultApp.storage();
-		var defaultDatabase = defaultApp.database();
-
-		function signin() {
-			var email =document.forms["thisForm"]["email"].value;
-			var password = document.forms["thisForm"]["password"].value;
-			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-			  // Handle Errors here.
-			  var errorCode = error.code;
-			  var errorMessage = error.message;
-			  if (errorCode == 'auth/invalid-email') {
-			    alert('invalid email');
-			  } else if(errorCode == 'auth/user-disabled') {
-			  	alert('user disabled');
-			  } else if(errorCode == 'auth/user-not-found') {
-			  	alert('user not found');
-			  } else if(errorCode == 'auth/wrong-password') {
-			  	alert('wrong password');
-			  } else {
-			  	window.location = "https://cse-134b-103ee.firebaseapp.com/homeBS.html";
-			    //alert(errorMessage);
-			  }
-			});
-		}
-
-	</script>
+	<script src="app.js"></script>
 
 
 	<!-- Optional theme -->
@@ -90,15 +48,15 @@
 			<div class="modal-body">
 				<form class="col-md-12 center-block" name="thisForm" method="POST">
 					<div class="form-group">
-						<input type="text" class="form-control input-lg" placeholder="User ID" name="email">
+						<input type="text" class="form-control input-lg" id="txtemail" placeholder="User ID" name="email">
 					</div>
 
 					<div class="form-group">
-						<input type="password" class="form-control input-lg" placeholder="Password" name="password">
+						<input type="password" class="form-control input-lg" id="txtpassword"placeholder="Password" name="password">
 					</div>
 
 					<div class="form-group">
-						<input type="button" class="btn btn-block btn-lg btn-primary" onclick="signin()" name ="submitvalue" value="Login">
+						<input type="button" class="btn btn-block btn-lg btn-primary" id="btnLogin" name ="submitvalue" value="Login">
 					</div>
 
 					<a href="register_pageBS.html"> <button class="btn btn-block btn-lg btn-primary" type="button"> Register </button> </a>
@@ -112,32 +70,7 @@
 				</div>
 			</div>
 			<button class="btn btn-block btn-lg btn-primary" onclick = "googleSignin();">Google Signin</button>
-				<script>
-					var provider = new firebase.auth.GoogleAuthProvider();
-					function googleSignin() {
-					   firebase.auth()
-					   
-					   .signInWithPopup(provider).then(function(result) {
-					      var token = result.credential.accessToken;
-					      var user = result.user;
-							
-					      console.log(token)
-					      console.log(user)
-					   }).catch(function(error) {
-					      var errorCode = error.code;
-					      var errorMessage = error.message;
-							
-					      console.log(error.code)
-					      console.log(error.message)
-					   });
-					}
-					firebase.auth().onAuthStateChanged(user => {
-					  if(user) {
-					    window.location = 'homeBS.html'; //After successful login, user will be redirected to home.html
-					  }
-					});
-
-				</script>
+				
 		</div>
 	</div>
 </body>
