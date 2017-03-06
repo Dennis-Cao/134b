@@ -39,7 +39,10 @@ var defaultApp = firebase.initializeApp(config);
 // 	firebase.auth().signOut();
 // })
 
-
+var signout = function() {
+	firebase.auth().signOut();
+	window.location = './Login_pageBS.html';
+}
 
 
 
@@ -80,7 +83,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if(user) {
   	console.log("hello");
   	console.log(user);
-  	// window.location = './homeBS.html';
+  	window.location = './homeBS.html';
   }
   else{
   	window.location = './Login_pageBS.html';
