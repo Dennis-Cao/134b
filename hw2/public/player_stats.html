@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>Player's Statistics</title>
+		<style type="text/css">
+			body {
+				background-image: url("images/tomlinson.jpeg");
+				background-size: 100%;
+			    margin: 0px;
+			}
+			h1 {width:90%; margin:auto; text-align: center; color:white;}
+			h2 {width:90%; margin:auto; text-align: center;}
+			h4 { text-align: center;}
+
+			tr.nav {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #333;
+			}
+
+			td.secondary {
+			    float: right;
+			}
+
+			td.secondary a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+
+			#firstTD{
+				float:left;
+			}
+
+			td.secondary a:hover:not(.active) {
+			    background-color: #1abc9c;
+			}
+
+			#center {
+			    display: block;
+			    margin: 0 auto;
+			}
+
+			#stats {
+				margin-top: 15px;
+			}
+
+			ul {
+				text-align: center;
+				list-style-type: none;
+				padding-left: 0px;
+				background-color: rgba(255, 255, 255, 0.50);
+				width: 75%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#news {
+
+			}
+
+			#comments {
+
+			}
+		</style>
+		
+	</head>
+	<body>
+		<table style="width:100%">
+			<tr class="nav">
+				<td class="secondary" id="firstTD"><a href="home.html"> Home </td>
+				<td class="secondary"><a href="login_page.html"> Logout </td>	
+				<td class="secondary">
+						<FORM ACTION="remove_players.html">
+				            <input type="text" name="comment" placeholder = "Search Player" style="height:40px;">
+				        </FORM>
+			    </td>
+				<td class="secondary"><a href="remove_players.html"> Remove Players From Watchlist </td>
+				<td class="secondary"><a href="choose_team.html"> Choose team </td>
+				<td class="secondary"><a href="players_by_position.html"> Choose players </td>	
+			</tr>
+		</table>
+
+		<!-- stats section -->
+		<div id="stats">
+			<img id="center" src="images/brett_favre.jpg" alt="Player Image Goes Here" height="200" width="200">
+			<ul>
+				<h2>Stats</h2>
+				<li>Name: Biggis Dickis</li>
+				<li>Position: Kicker</li>
+				<li>Team: New England Patriots</li>
+				<li>Stat....</li>
+				<li>Stat....</li>
+				<li>Stat....</li>
+				<li>Stat....</li>
+				<li>Stat....</li>
+			</ul>
+			<button id="center" type="button">Add To Watchlist</button>
+		</div>
+
+		<!-- News -->
+		<div id="news">
+			<ul>
+				<h2>News About This Player</h2>
+				<li>Chargers Are Moving Back to San Diego!</li>
+				<li>Ben Roethlisberger indicted on multiple rape charges</li>
+				<li>Ben Roethlisberger crashes his motercycle again</li>
+				<li>Tom Brady is 2nd open gay player to announce his sexuality</li>
+				<li>Ray Rice keeps beating himself over not being able to play anymore, and his wife</li>
+				<li>San Diego doesn't want a MLS team</li>
+			</ul>
+		</div>		
+
+		<!-- comments -->
+		<div id="comments">
+			<ul>
+				<h2>Comments</h2>
+				<li>Hey You White House!</li>
+				<li>Ahhh haaa shaaaaahhh riiigghhh you are</li>
+				<li>How many tickles does it take make an octupus laugh? 10 tickles</li>
+				<li>I get so blow I cant stand up</li>
+				<li>How many brothas fell victims to the streets?</li>
+				<li>Rest in peace young ninja</li>
+				<li>There's a heaven for a G</li>
+			</ul>
+		</div>
+	</body>
+</html>
