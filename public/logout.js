@@ -44,6 +44,15 @@ var signout = function() {
 	window.location = './Login_pageBS.html';
 }
 
+var createNewUserWatchlist = function(userID){
+	firebase.database().ref('users').set({
+		userID: {
+			UserWatchList:{
+
+			}
+		}
+	});
+}
 
 // var provider = new firebase.auth.GoogleAuthProvider();
 // function googleSignin() {

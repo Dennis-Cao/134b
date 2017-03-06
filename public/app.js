@@ -87,11 +87,32 @@ var googleSignin = function(){
 //       console.log(error.message)
 //    });
 // }
+var createNewUserWatchlist = function(userID){
+	firebase.database().ref('users').set({
+		userID: {
+			UserWatchList:{
+
+			}
+		}
+	});
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
   if(user) {
   	console.log("hello");
   	console.log(user);
-  	window.location = './homeBS.html';
+  	const rootRef = firebase.database().ref();
+  	rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+
+        if snapshot.hasChild(user.uid){
+        	createNewUserWatchList(user.uid)
+
+        }else{
+        }
+
+
+    })
+    window.location = './homeBS.html';
   }
 });
 
