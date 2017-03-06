@@ -22,28 +22,6 @@
     </style>
 
 </head>
-<script>
-    var provider = new firebase.auth.GoogleAuthProvider();
-    function window.googleSignout = function() {
-       firebase.auth().signOut()
-        
-       .then(function() {
-          window.location = 'Login_pageBS.html';
-          console.log('Signout Succesfull')
-       }, function(error) {
-            firebase.auth().signOut().then(function() {
-               console.log("Logged out!")
-               window.location = 'Login_pageBS.html';
-            }, function(error) {
-               console.log(error.code);
-               console.log(error.message);
-            });
-          console.log('Signout Failed')  
-       });
-    }
-    
-
-</script>
 
 <body>
     <nav class="navbar navbar-default">
@@ -75,7 +53,7 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </li>
-            <li><a href="javascript:googleSignout()">Logout</a></li>
+            <li><a href="#" id='btnLogout'>Logout</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -172,6 +150,7 @@
             </div>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 
 </html>
