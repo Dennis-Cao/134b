@@ -45,22 +45,6 @@ var signout = function() {
 }
 
 
-
-var signin = function() {
-	var email = document.getElementById('txtemail');
-	var password = document.getElementById('txtpassword');
-	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    	alert("Incorrect combination")
-  });
-}
-var googleSignin = function(){
-  var provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    var user = result.user;
-  }).catch(function(error) {
-    alert("Google login did not work")
-  });
-}
 // var provider = new firebase.auth.GoogleAuthProvider();
 // function googleSignin() {
 //    firebase.auth()
