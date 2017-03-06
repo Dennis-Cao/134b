@@ -88,12 +88,8 @@ var googleSignin = function(){
 //    });
 // }
 var createNewUserWatchlist = function(userID){
-	firebase.database().ref('users').set({
-		userID: {
-			UserWatchList:{
-
-			}
-		}
+	firebase.database().ref('users/'+userID).set({
+			UserWatchList:[]
 	});
 }
 
@@ -102,13 +98,15 @@ firebase.auth().onAuthStateChanged(function(user) {
   	console.log("hello");
   	console.log(user);
   	const rootRef = firebase.database().ref();
-  	usersRef.once('value', function(snapshot) {
+  	rootRef.once('value', function(snapshot) {
   		if (snapshot.hasChild("users/"+user.uid)) {
 
   		}
   		else
   		{
-  			createNewUserWatchList(user.uid)
+  			firebase.database().ref('users/'+user.uid).set({
+				UserWatchList:[]
+			});
   		}
   	})
   	// rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
