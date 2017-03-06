@@ -85,8 +85,5 @@ firebase.auth().onAuthStateChanged(function(user) {
   	console.log(user);
   	window.location = './homeBS.html';
   }
-  else{
-  	window.location = './Login_pageBS.html';
-  }
 });
 
