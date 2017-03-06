@@ -1,4 +1,4 @@
-(function(){
+
 var config = {
 	    apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
 	    authDomain: "cse-134b-103ee.firebaseapp.com",
@@ -14,26 +14,26 @@ var defaultApp = firebase.initializeApp(config);
 
 
 
-console.log(typeof defaultApp); 
-console.log(defaultApp.name);  // "[DEFAULT]"
-const txtEmail = document.getElementById('txtemail');
-const txtPassword = document.getElementById('txtpassword');
-const btnLogin = document.getElementById('btnLogin');
+// console.log(typeof defaultApp); 
+// console.log(defaultApp.name);  // "[DEFAULT]"
+// var txtEmail = document.getElementById('txtemail');
+// var txtPassword = document.getElementById('txtpassword');
+// const btnLogin = document.getElementById('btnLogin');
 // const btnLogout = document.getElementById('btnLogout');
 // You can retrieve services via the defaultApp variable...
 //var defaultStorage = defaultApp.storage();
-var defaultDatabase = defaultApp.database();
+// var defaultDatabase = defaultApp.database();
 
 
 //login event
-btnLogin.addEventListener('click',e=>{
-	const email = txtEmail.value;
-	const pass = txtPassword.value;
-	const auth = firebase.auth();
-	//sign in
-	const promise = auth.signInWithEmailAndPassword(email,pass);
-	promise.catch(e=> console.log(e.message));
-})
+// btnLogin.addEventListener('click',e=>{
+// 	const email = txtEmail.value;
+// 	const pass = txtPassword.value;
+// 	const auth = firebase.auth();
+// 	//sign in
+// 	const promise = auth.signInWithEmailAndPassword(email,pass);
+// 	promise.catch(e=> console.log(e.message));
+// })
 
 // btnLogout.addEventListener('click', e=>{
 // 	firebase.auth().signOut();
@@ -43,26 +43,20 @@ btnLogin.addEventListener('click',e=>{
 
 
 
-function signin() {
-	var email =document.forms["thisForm"]["email"].value;
-	var password = document.forms["thisForm"]["password"].value;
+var signin = function() {
+	var email = document.getElementById('txtemail');
+	var password = document.getElementById('txtpassword');
 	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-	  // Handle Errors here.
-	  var errorCode = error.code;
-	  var errorMessage = error.message;
-	  if (errorCode == 'auth/invalid-email') {
-	    alert('invalid email');
-	  } else if(errorCode == 'auth/user-disabled') {
-	  	alert('user disabled');
-	  } else if(errorCode == 'auth/user-not-found') {
-	  	alert('user not found');
-	  } else if(errorCode == 'auth/wrong-password') {
-	  	alert('wrong password');
-	  } else {
-	  	// window.location = "https://cse-134b-103ee.firebaseapp.com/homeBS.html";
-	    //alert(errorMessage);
-	  }
-	});
+    	alert("Incorrect combination")
+  });
+}
+var googleSignin = function(){
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    var user = result.user;
+  }).catch(function(error) {
+    alert("Google login did not work")
+  });
 }
 // var provider = new firebase.auth.GoogleAuthProvider();
 // function googleSignin() {
@@ -84,12 +78,7 @@ function signin() {
 // }
 firebase.auth().onAuthStateChanged(user => {
   if(user) {
-  	console.log(user);
-    window.location = 'homeBS.html'; //After successful login, user will be redirected to home.html
-  }
-  else{
-  	console.log('not logged in');
+  	window.location = './homeBS.html'
   }
 });
 
-}());
