@@ -19,7 +19,7 @@ console.log(defaultApp.name);  // "[DEFAULT]"
 const txtEmail = document.getElementById('txtemail');
 const txtPassword = document.getElementById('txtpassword');
 const btnLogin = document.getElementById('btnLogin');
-const btnLogout = document.getElementById('btnLogout');
+// const btnLogout = document.getElementById('btnLogout');
 // You can retrieve services via the defaultApp variable...
 //var defaultStorage = defaultApp.storage();
 var defaultDatabase = defaultApp.database();
@@ -35,9 +35,9 @@ btnLogin.addEventListener('click',e=>{
 	promise.catch(e=> console.log(e.message));
 })
 
-btnLogout.addEventListener('click', e=>{
-	firebase.auth().signOut();
-})
+// btnLogout.addEventListener('click', e=>{
+// 	firebase.auth().signOut();
+// })
 
 
 
