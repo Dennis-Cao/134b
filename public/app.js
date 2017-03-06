@@ -76,9 +76,14 @@ var googleSignin = function(){
 //       console.log(error.message)
 //    });
 // }
-firebase.auth().onAuthStateChanged(user => {
+firebase.auth().onAuthStateChanged(function(user) {
   if(user) {
-  	window.location = './homeBS.html'
+  	console.log("hello");
+  	console.log(user);
+  	// window.location = './homeBS.html';
+  }
+  else{
+  	window.location = './Login_pageBS.html';
   }
 });
 
