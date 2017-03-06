@@ -102,17 +102,27 @@ firebase.auth().onAuthStateChanged(function(user) {
   	console.log("hello");
   	console.log(user);
   	const rootRef = firebase.database().ref();
-  	rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+  	usersRef.once('value', function(snapshot) {
+  		if (snapshot.hasChild("users/"+user.uid)) {
 
-        if snapshot.hasChild(user.uid){
-        	createNewUserWatchList(user.uid)
+  		}
+  		else
+  		{
+  			createNewUserWatchList(user.uid)
+  		}
+  	})
+  	// rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
 
-        }else{
-        }
+   //      if snapshot.hasChild(user.uid){
+   //      	createNewUserWatchList(user.uid)
+
+   //      }else{
+   //      }
 
 
-    })
+   //  })
     window.location = './homeBS.html';
   }
+
 });
 
