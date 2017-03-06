@@ -1,3 +1,4 @@
+(function(){
 var config = {
 	    apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
 	    authDomain: "cse-134b-103ee.firebaseapp.com",
@@ -87,3 +88,5 @@ firebase.auth().onAuthStateChanged(user => {
   	console.log('not logged in');
   }
 });
+
+}());
