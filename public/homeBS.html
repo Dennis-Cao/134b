@@ -28,10 +28,12 @@
        firebase.auth().signOut()
         
        .then(function() {
+          window.location = 'Login_pageBS.html';
           console.log('Signout Succesfull')
        }, function(error) {
             firebase.auth().signOut().then(function() {
                console.log("Logged out!")
+               window.location = 'Login_pageBS.html';
             }, function(error) {
                console.log(error.code);
                console.log(error.message);
