@@ -8,10 +8,11 @@
 			    height: 100%;
 			}
 			body {
-				background-image: url("images/stadium.jpg");
-				background-size:     cover;                      /* <------ */
-			    background-repeat:   no-repeat;
-			    background-position: center center;
+			    background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url("images/stadium.jpg");
+             -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
 			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,7 +98,7 @@
 					<li>Rest in peace young ninja</li>
 					<li>There's a heaven for a G</li>
 				</ul>
-			<button class="btn btn-primary" type="button">Add To Watchlist</button>
+			<button class="btn btn-primary" type="button" onclick="location.href='rosterBS.html';">Add To Watchlist</button>
 		 	</div>
 		 	<div class="col-md-6"><img src="images/jamarcus.jpg" alt="Player Image Goes Here" ></div>
 		</div>

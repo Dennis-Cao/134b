@@ -14,62 +14,62 @@
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-			<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
-<script src="logout.js"></script>
-<script>
-					function loadRoster() {
-						var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
+		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+		<script src="logout.js"></script>
+		<script>
+			function loadRoster() {
+				var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
 					  	//var userId = firebase.auth().currentUser.uid;
-						firebase.database().ref('/players/').once('value').then(function(snapshot) {
-							var divRoster = document.getElementById("roster");
-			  				var username = snapshot.val();
-			  				var start = '<h5>Quarterbacks</h5>';
-			  				var begAnchor = '<a href="player_statsBS.html">';
-			  				var fig = '<figure>';
-			  				var img = '<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">';
-			  				var begFig = '<figure>';
-			  				var endFig = '</figure>';
-			  				var FirstAppend = '<button type="input" onclick = "AddPlayerToList(\'';
-			  				var SecondAppend = '\')"> Add </button>'; 
-			  				var endAnchor = '</a>';
-		  					for(x in username) {
-		  						
-			  					var name = username[x].name;
-			  					start += begAnchor + fig + img + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend ;
+					  	firebase.database().ref('/players/').once('value').then(function(snapshot) {
+					  		var divRoster = document.getElementById("roster");
+					  		var username = snapshot.val();
+					  		var start = '<h5>Quarterbacks</h5>';
+					  		var begAnchor = '<a href="player_statsBS.html">';
+					  		var fig = '<figure>';
+					  		var img = '<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">';
+					  		var begFig = '<figure>';
+					  		var endFig = '</figure>';
+					  		var FirstAppend = '<button type="input" onclick = "AddPlayerToList(\'';
+					  		var SecondAppend = '\')"> Add </button>'; 
+					  		var endAnchor = '</a>';
+					  		for(x in username) {
+					  			
+					  			var name = username[x].name;
+					  			start += begAnchor + fig + img + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend ;
 			  					// create the player button
-							}
-							divRoster.innerHTML = start;
-						});
-					}
-					loadRoster();
+			  				}
+			  				divRoster.innerHTML = start;
+			  			});
+					  }
+					  loadRoster();
 
-					function AddPlayerToList(AddedPerson){
-						var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
-						firebase.database().ref('/players/' + AddedPerson).once('value').then(function(snapshot){
-						 	var newPlayer = snapshot.val();
-						 	firebase.database().ref('users/' + userId + '/UserWatchList/' + AddedPerson).set({
-							    age: newPlayer.age,
-							    height: newPlayer.height,
-							    name : newPlayer.name,
-							    position : newPlayer.position,
-							    stats : newPlayer.stats
+					  function AddPlayerToList(AddedPerson){
+					  	var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
+					  	firebase.database().ref('/players/' + AddedPerson).once('value').then(function(snapshot){
+					  		var newPlayer = snapshot.val();
+					  		firebase.database().ref('users/' + userId + '/UserWatchList/' + AddedPerson).set({
+					  			age: newPlayer.age,
+					  			height: newPlayer.height,
+					  			name : newPlayer.name,
+					  			position : newPlayer.position,
+					  			stats : newPlayer.stats
 
-							  });
-						 	alert("Inserted " + newPlayer.name);
-						});
+					  		});
+					  		alert("Inserted " + newPlayer.name);
+					  	});
 
-					}
-</script>
+					  }
+					</script>
 		<style>
 					html, body {
 			    margin: 0;
 			    height: 100%;
 			}
 								body {
-				background-image: url("images/nfl-football-field.jpg");
-				background-size:     cover;                      /* <------ */
-			    background-repeat:   no-repeat;
-			    background-position: center center;
+				background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("images/nfl-football-field.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-attachment: fixed;
 			}
 			h1 {
 				text-align: center;

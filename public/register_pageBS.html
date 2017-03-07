@@ -12,21 +12,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
-		<script>
-			  var config = {
-	    apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
-	    authDomain: "cse-134b-103ee.firebaseapp.com",
-	    databaseURL: "https://cse-134b-103ee.firebaseio.com",
-	    storageBucket: "cse-134b-103ee.appspot.com",
-	    messagingSenderId: "737274665905"
-	  };
+	<script>
+		var config = {
+			apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
+			authDomain: "cse-134b-103ee.firebaseapp.com",
+			databaseURL: "https://cse-134b-103ee.firebaseio.com",
+			storageBucket: "cse-134b-103ee.appspot.com",
+			messagingSenderId: "737274665905"
+		};
 	  //firebase.initializeApp(config);
 
 	  // Initialize the default app
-		var defaultApp = firebase.initializeApp(config);
+	  var defaultApp = firebase.initializeApp(config);
 
 		// You can retrieve services via the defaultApp variable...
 		//var defaultStorage = defaultApp.storage();
@@ -39,7 +39,7 @@
 				alert("You've created an account! Go Back and sign in!");
 				document.forms["thisForm"]["password"].value = "";
 				document.forms["thisForm"]["loginID"].value = "";
-				alert(user.uid);
+				//alert(user.uid);
 				createNewUserWatchlist(user.uid);
 			})
 			.catch(function(error) {
@@ -47,17 +47,17 @@
 			  var errorCode = error.code;
 			  var errorMessage = error.message;
 			  if (errorCode == 'auth/weak-password') {
-			    alert('The password is too weak.');
+			  	alert('The password is too weak.');
 			  } else if(errorCode == 'auth/invalid-email') {
 			  	alert('Not valid email');
 			  } else if(errorCode == 'auth/email-already-in-use') {
 			  	alert('email already used');
 			  } else {
-			    alert(errorMessage);
+			  	alert(errorMessage);
 			  }
 			  // ...
 			});
-		
+
 		}
 
 

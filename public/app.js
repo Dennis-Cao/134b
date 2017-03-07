@@ -1,17 +1,18 @@
-var config = {
-      apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
-      authDomain: "cse-134b-103ee.firebaseapp.com",
-      databaseURL: "https://cse-134b-103ee.firebaseio.com",
-      storageBucket: "cse-134b-103ee.appspot.com",
-      messagingSenderId: "737274665905"
-    };
+/*
+ * JS file that sets up login authentication and provides
+ * other login functionalities
+ */
+
+ var config = {
+ 	apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
+ 	authDomain: "cse-134b-103ee.firebaseapp.com",
+ 	databaseURL: "https://cse-134b-103ee.firebaseio.com",
+ 	storageBucket: "cse-134b-103ee.appspot.com",
+ 	messagingSenderId: "737274665905"
+ };
     //firebase.initializeApp(config);
-
     // Initialize the default app
-var defaultApp = firebase.initializeApp(config);
-
-
-
+    var defaultApp = firebase.initializeApp(config);
 
 // console.log(typeof defaultApp); 
 // console.log(defaultApp.name);  // "[DEFAULT]"
@@ -20,7 +21,7 @@ var defaultApp = firebase.initializeApp(config);
 // const btnLogin = document.getElementById('btnLogin');
 // const btnLogout = document.getElementById('btnLogout');
 // You can retrieve services via the defaultApp variable...
-//var defaultStorage = defaultApp.storage();
+// var defaultStorage = defaultApp.storage();
 // var defaultDatabase = defaultApp.database();
 
 
@@ -38,50 +39,55 @@ var defaultApp = firebase.initializeApp(config);
 //  firebase.auth().signOut();
 // })
 
-var signout = function() {
-  firebase.auth().signOut();
-  window.location = './Login_pageBS.html';
-}
+
+/*
+ * Login/Signout functionalities below
+ */
 
 
+ var signout = function() {
+ 	firebase.auth().signOut();
+ 	window.location = './Login_pageBS.html';
+ }
 
-var signin = function() {
-  var email = document.getElementById('txtemail').value;
-  var pwd = document.getElementById('txtpassword').value;
-  firebase.auth().signInWithEmailAndPassword(email, pwd).catch(function(error) {
-      alert("Incorrect combination")
-  });
-}
-var googleSignin = function(){
-  var provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-      var token = result.credential.accessToken;
-      var user = result.user;
-    
-      console.log(token)
-      console.log(user)
-   }).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    
-      console.log(error.code)
-      console.log(error.message)
-   });
-}
+
+ var signin = function() {
+ 	var email = document.getElementById('txtemail').value;
+ 	var pwd = document.getElementById('txtpassword').value;
+ 	firebase.auth().signInWithEmailAndPassword(email, pwd).catch(function(error) {
+ 		alert("Incorrect User ID or Password")
+ 	});
+ }
+ var googleSignin = function(){
+ 	var provider = new firebase.auth.GoogleAuthProvider();
+ 	firebase.auth().signInWithPopup(provider).then(function(result) {
+ 		var token = result.credential.accessToken;
+ 		var user = result.user;
+
+ 		console.log(token)
+ 		console.log(user)
+ 	}).catch(function(error) {
+ 		var errorCode = error.code;
+ 		var errorMessage = error.message;
+
+ 		console.log(error.code)
+ 		console.log(error.message)
+ 	});
+ }
 // var provider = new firebase.auth.GoogleAuthProvider();
 // function googleSignin() {
 //    firebase.auth()
-   
+
 //    .signInWithPopup(provider).then(function(result) {
 //       var token = result.credential.accessToken;
 //       var user = result.user;
-    
+
 //       console.log(token)
 //       console.log(user)
 //    }).catch(function(error) {
 //       var errorCode = error.code;
 //       var errorMessage = error.message;
-    
+
 //       console.log(error.code)
 //       console.log(error.message)
 //    });
@@ -89,39 +95,34 @@ var googleSignin = function(){
 var InitialPlayer = '{"Player": {"name" : "Tom Brady", "position" : "Quarterback", "height" : "' + "5'" + '10", "age" : "34", "stats" :{"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"}}}';
 var initialArray = JSON.parse(InitialPlayer);
 function createNewUserWatchlist(userID){
-  firebase.database().ref('users/'+userID).set({
-      UserWatchList:{initialArray}
-  });
+	firebase.database().ref('users/'+userID).set({
+		UserWatchList:{initialArray}
+	});
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
-  if(user) {
-    console.log("hello");
-    console.log(user);
-    const rootRef = firebase.database().ref();
-    rootRef.once('value', function(snapshot) {
-      if (snapshot.hasChild("users/"+user.uid)) {
+	if(user) {
+		console.log("hello");
+		console.log(user);
+		const rootRef = firebase.database().ref();
+		rootRef.once('value', function(snapshot) {
+			if (snapshot.hasChild("users/"+user.uid)) {
 
-      }
-      else
-      {
-        firebase.database().ref('/users/'+user.uid).set({
-          UserWatchList:[]
-        
-      });
-      }
-    })
-    // rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+			}
+			else
+			{
+				firebase.database().ref('/users/'+user.uid).set({
+					UserWatchList:[]
 
+				});
+			}
+		})
+   // rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
    //      if snapshot.hasChild(user.uid){
    //       createNewUserWatchList(user.uid)
-
    //      }else{
    //      }
-
-
    //  })
-     window.location = './homeBS.html';
-  }
-
+   window.location = './homeBS.html';
+}
 });
