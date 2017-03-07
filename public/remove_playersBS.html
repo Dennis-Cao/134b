@@ -62,10 +62,10 @@
 <div class="container">
 	<div class="backg"></div>
 <h3 style="text-align:center"> Select Players to Delete </h3>
-<form>
+<form method="get">
     <table class="table table-responsive table-inverse">
-        <tr>
-            <td>
+        <tr id="playerList1" onload="loadRemoveList()">
+<!--             <td>
             	<figure>
             		<a href="player_statsBS.html">
 		            	<img src = "images/generic.png" width="80" height="75">
@@ -124,7 +124,7 @@
 		            	<input type="checkbox" name="player" value="1"> Delete<br>
 		            </figcaption>
 		        </figure>
-            </td>
+            </td> -->
         </tr>
         <tr>
             <td>
@@ -253,7 +253,7 @@
         <tr>
         	<td></td>
         	<td></td>
-        	<td><button type = "button" class = "btn btn-danger">Delete </button></td>
+        	<td><button onclick="DeleteSelectedPlayer()" type = "button" class = "btn btn-danger">Delete </button></td>
         	<td><button type = "button" class = "btn btn-success">Select All</button></td>
         	<td></td>
         	<td></td>
@@ -264,4 +264,41 @@
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 <script src="logout.js"></script>
+<script>
+    
+function loadRemoveList() {
+    var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
+    //var userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+        var divRoster = document.getElementById("playerList1");
+        var username = snapshot.val();
+        var start = '';
+        var begdiv ='<div class="col-sm-2">';
+        var begAnchor = '<a href="player_statsBS.html">';
+        var fig = '<figure class="figure">';
+        var img = '<img src="images/manning_peyton.png" class="figure-img img-fluid rounded" width="80" height="75">';
+        var begFig = '<figcaption class="figure-caption">';
+        var endFig = '</figcaption></figure>';
+        var endAnchor = '</a>';
+        var endDiv = '</div>';
+        //var buttons = '<div class="col-sm-1"><button type="submit" class="btn btn-default">More...</button></div><div class="col-sm-1"><a href="remove_playersBS.html"><button type="submit" class="btn btn-default">Remove...</button></a></div>';
+        var FirstAppend = "<td>" + "<figure>" + '<a href="player_statsBS.html">' + 
+        '<img src = "images/generic.png" width="80" height="75">' + "</a>" + "<figcaption>";
+        var SecondAppend = '<input class="DeleteCheckBox" type="radio" name="player" value="';
+        var ThirdAppend = '"> Delete<br> </figcaption>' + "</figure> </td>";
+        for(var x in username.UserWatchList) {
+            if(username.UserWatchList.hasOwnProperty(x)) {
+                var name = username.UserWatchList[x].name;
+                start += FirstAppend + name + SecondAppend + x + ThirdAppend;
+            }
+
+            // create the player button
+        }
+        divRoster.innerHTML = start;
+    });
+}
+loadRemoveList();
+
+
+</script>
 </html>
