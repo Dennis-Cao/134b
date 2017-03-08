@@ -1,3 +1,6 @@
+/*
+ * Provide log out features as well as adding/deleting players from watched list
+ */
 
 var config = {
 	    apiKey: "AIzaSyBoUFCtMwn6r63MEd8pfQLTMLp_h-KLkWY",
@@ -101,11 +104,6 @@ var signout = function() {
 	firebase.auth().signOut();
 	window.location = './Login_pageBS.html';
 }
-
-
-
-
-
 
 // var provider = new firebase.auth.GoogleAuthProvider();
 // function googleSignin() {

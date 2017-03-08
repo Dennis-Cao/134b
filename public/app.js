@@ -41,7 +41,7 @@
 
 
 /*
- * Login/Signout functionalities below
+ * Login/Signout functionalities and functions below
  */
 
 
