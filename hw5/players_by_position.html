@@ -2,71 +2,89 @@
 <html>
 <head>
     <title>players_by_position</title>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <style type="text/css">
-       body{
-			 background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url('images/layout-background.jpg');
-			 background-repeat: no-repeat;
-       		 background-position: center center;
-       		 background-attachment: fixed;
-             -webkit-background-size: cover;
-             -moz-background-size: cover;
-             -o-background-size: cover;
-             background-size: cover;
+        tr {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        td.navBar {
+            float: right;
+        }
+
+        td a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        #firstTD{
+            float:left;
+        }
+        td a:hover:not(.active) {
+            background-color: #1abc9c;
+        }
+        table.main{
+        	margin: auto;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/layout-background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+            opacity: 0.8;
+        }
+        #wrapper {
+            margin: auto;
+            text-align: left;
+            position: relative;
+        }
+        .button3 {
+		    background-color: white; 
+		    color: black; 
+		    border: 2px solid green;
+		}
+
+		.button3:hover {
+		    background-color: green;
+		    color: white;
 		}
     </style>
 </head>
-<body>
-	 <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="homeBS.html">Home</a>
-        </div>
+<div id="background"></div>
+<div id = "wrapper">
+<table style="width:100%">
+    <tr>
+        <td id="firstTD"><a href="home.html"> home </td>
+        <td class="secondary"><a href="login_page.html"> Logout </td>	
+        <td class="navBar">
+            <FORM ACTION="search_results.html">
+                <input type="text" name="comment" placeholder = "Enter comment here" style="height:40px;">
+            </FORM>
+        </td>
+        <td class="navBar"><a href="remove_players.html"> Remove players from watchlist </td>
+        <td class="navBar"><a href="choose_team.html"> Choose team </td>
+        <td class="navBar"><a href="Choose_position.html"> Choose players by position</td>
+    </tr>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          
-          
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="Choose_teamBS.html">Choose Team</a></li>
-            <li><a href="Choose_positionBS.html">Choose Position</a></li>
-            <li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
-            <li>
-                <form class="navbar-form navbar-left" action="search_resultsBS.html">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </li>
-            <li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+
+</table>
     <h3 style="text-align:center"> POSITION NAME </h3>
-    <div class="container">
     <form>
-	    <table class="table table-responsive table-inverse">
-	    	<tbody>
+	    <table class="main">
 	        <tr>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -76,7 +94,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -86,7 +104,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -96,7 +114,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -106,7 +124,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -116,7 +134,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -128,7 +146,7 @@
 	        </tr>
 	        <tr>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -138,7 +156,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -148,7 +166,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -158,7 +176,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -168,7 +186,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -178,7 +196,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -190,7 +208,7 @@
 	        </tr>
 	        <tr>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -200,7 +218,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -210,7 +228,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -220,7 +238,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -230,7 +248,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -240,7 +258,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -252,7 +270,7 @@
 	        </tr>
 	        <tr>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -262,7 +280,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -272,7 +290,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -282,7 +300,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -292,7 +310,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -302,7 +320,7 @@
 				    </a>
 	            </td>
 	            <td>
-	            	<a href="player_statsBS.html">
+	            	<a href="player_stats.html">
 		            	<figure>
 				            <img src = "images/generic.png" width="80" height="75">
 				            <figcaption> 
@@ -313,14 +331,9 @@
 	            </td>
 	        </tr>
 	        <tr>
-	        	<!-- <td align='center' colspan="6"><button class="button button3" style="width:100%">Load more players</button></td> -->
-	        	<td align='center' colspan="6"><button type = "button" class = "btn btn-primary"style="width:100%">Load More Players</button></td>
+	        	<td align='center' colspan="6"><button class="button button3" style="width:100%">Load more players</button></td>
 	        </tr>
-	    	</tbody>
 	    </table>
 	</form>
-	</div>
-</body>
-<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
-<script src="logout.js"></script>
+</div>
 </html>
