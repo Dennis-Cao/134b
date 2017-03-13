@@ -1,0 +1,80 @@
+{"users" : 
+	{"EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2" : 
+		{"UserWatchList" : 
+			{"Player1" : 
+				{"name" : "Phillip Rivers", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			
+			,
+
+			 "Player2" : 
+				{"name" : "Aaron Rogers", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			,
+
+			 "Player3" : 
+				{"name" : "Tom Brady", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			}
+		}
+	}
+	,
+"players" : {"Player1" : 
+				{"name" : "Phillip Rivers", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			
+			,
+
+			 "Player2" : 
+				{"name" : "Aaron Rogers", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			,
+
+			 "Player3" : 
+				{"name" : "Tom Brady", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+
+			,
+				"Player4" : 
+				{"name" : "Dak Prescott", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			
+			,
+
+			 "Player5" : 
+				{"name" : "Ryan Tannehil", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			,
+
+			 "Player6" : 
+				{"name" : "Matt Ryan", "position" : "Quarterback", "height" : "5'10", "age" : "34", "stats" :
+					{
+						"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"
+					}
+				}
+			}
+}

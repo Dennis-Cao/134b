@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Register page </title>
+	<style type="text/css">
+		.center{
+			position: absolute;
+			margin: auto;
+			top: -50%;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 150px;
+			height: 150px;
+
+		}
+
+		input{
+			background: transparent;
+			border: 1px solid orange;
+			color: grey;
+			font-size: 16px;
+			display: inline-block;
+			float: left;
+
+		}
+
+		#registerB{
+			float: left;
+			width: 100px;
+			height: 25px;
+			background: transparent;
+			border: 1px solid orange;
+			color: grey;
+			font-size: 16px;
+			display: inline-block;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="center">
+		<p>	Register Below! </p>
+		<form action="todo.php" method="POST">
+			<label> User ID: </label>
+			<input type = "text" placeholder="User ID" name = "loginID"> <br>
+			<label> Password: </label> 
+			<input type = "text" placeholder="Password" name = "password"><br>
+			<label> First Name: </label>
+			<input type = "text" placeholder="First" name = "loginID"> <br>
+			<label> Last Name: </label> 
+			<input type = "text" placeholder="Last" name = "password"><br><br> <br>
+			<input id="test" type = "submit" value = "Register" name ="submitvalue">
+		</form>
+		<a href="login_page.html"> <button id="registerB" type="button"> Go Back </button> </a>
+	</div>
+</body>
+</html>
