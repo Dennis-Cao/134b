@@ -17,55 +17,28 @@
 		<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 		<script src="logout.js"></script>
 		<script>
-
-
 			function loadRoster() {
 				var userId = sessionStorage.getItem('uid');
 					  	//var userId = firebase.auth().currentUser.uid;
 					  	firebase.database().ref('/players/').once('value').then(function(snapshot) {
-					  		var team = sessionStorage.getItem('team');
 					  		var divRoster = document.getElementById("roster");
-					  		var divRoster1 = document.getElementById("roster1");
-					  		var divRoster2 = document.getElementById("roster2");
-					  		var divRoster3 = document.getElementById("roster3");
-							var divRoster4 = document.getElementById("roster4");
-							var divRoster5 = document.getElementById("roster5");
-							var divRoster6 = document.getElementById("roster6");
 					  		var username = snapshot.val();
 					  		var start = '<h5>Quarterbacks</h5>';
-					  		var start1 = '<h5>Wide Recievers</h5>';
-					  		var start2 = '<h5>Running Backs</h5>';
-					  		var start3 = '<h5>Offensive Linemen</h5>';
-					  		var start4 = '<h5>Defensive Linemen</h5>';
-					  		var start5 = '<h5>Linebackers</h5>';
-					  		var start6 = '<h5>Defensive Backs</h5>';
 					  		var begAnchor = '<a href="player_statsBS.html">';
 					  		var fig = '<figure>';
-					  		var img = '<img src="';
-					  		var img2 = '" alt="Phillip Rivers Image Goes Here" height="42" width="42">';
+					  		var img = '<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">';
 					  		var begFig = '<figure>';
 					  		var endFig = '</figure>';
 					  		var FirstAppend = '<button type="input" onclick = "AddPlayerToList(\'';
 					  		var SecondAppend = '\')"> Add </button>'; 
 					  		var endAnchor = '</a>';
 					  		for(x in username) {
-					  			if(username[x].team == team && username[x].position == 'Quarterback') {
-					  				var name = username[x].name;
-					  				var GetPlayerPicture = username[x].img;
-					  				start += begAnchor + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
-			  						// create the player button
-			  					}
+					  			
+					  			var name = username[x].name;
+					  			start += begAnchor + fig + img + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend ;
+			  					// create the player button
 			  				}
 			  				divRoster.innerHTML = start;
-			  				for(x in username) {
-					  			if(username[x].team == team && username[x].position == 'Widerecievers') {
-					  				var name = username[x].name;
-					  				var GetPlayerPicture = username[x].img;
-					  				start1 += begAnchor + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
-			  						// create the player button
-			  					}
-			  				}
-			  				divRoster1.innerHTML = start1;
 			  			});
 					  }
 					  loadRoster();
@@ -79,8 +52,6 @@
 					  			height: newPlayer.height,
 					  			name : newPlayer.name,
 					  			position : newPlayer.position,
-					  			team : newPlayer.team,
-					  			img : newPlayer.img,
 					  			stats : newPlayer.stats
 
 					  		});
@@ -175,8 +146,7 @@
 						</figure>
 					</a> -->
 				</div>
-			  <div class="col-md-4" id="roster1" onload="loadRoster()">
-			  <!--
+			  <div class="col-md-4">
 				<h5>Wide Recievers</h5>
 				<a href="player_statsBS.html">
 					<figure>
@@ -196,7 +166,6 @@
 						<figcaption>Travis Benjamin</figcaption>
 					</figure>
 				</a>
-				-->
 			  </div>
 			  <div class="col-md-4">
 				<h5>Running Backs</h5>
@@ -281,8 +250,14 @@
 			  </div>
 			</div>
 			
+
+
 		<!-- Wide Recievers -->
+
+
+
 			<!-- RB -->
 
 	</body>
+
 </html>
