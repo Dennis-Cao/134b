@@ -20,9 +20,17 @@ function AddPlayerToList(AddedPerson){
 
 }
 
+var InitialPlayer = '{"Player3": {"name" : "Tom Brady", "position" : "Quarterback", "height" : "' + "5'" + '10", "age" : "34", "stats" :{"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"}}}';
+var initialArray = JSON.parse(InitialPlayer);
+function createNewUserWatchlist(userID){
+	firebase.database().ref('users/'+userID).set({
+		UserWatchList:initialArray
+	});
+}
+
 function DeleteSelectedPlayer(){
 	//var CheckedBox = array[];
-	var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
+	var userId = sessionStorage.getItem('uid');
 	var AllPlayers = document.getElementsByClassName("DeleteCheckBox");
 	var z;
 	firebase.database().ref('/users/' + userId).once('value').then(function(snapshot){
