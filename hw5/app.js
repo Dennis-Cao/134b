@@ -1,6 +1,7 @@
 /*
  * JS file that sets up login authentication and provides
- * other login functionalities
+ * other login functionalities such as creation of list and
+ * event/state handling
  */
 
  var config = {
@@ -10,35 +11,8 @@
  	storageBucket: "cse-134b-103ee.appspot.com",
  	messagingSenderId: "737274665905"
  };
-    //firebase.initializeApp(config);
-    // Initialize the default app
-    var defaultApp = firebase.initializeApp(config);
 
-// console.log(typeof defaultApp); 
-// console.log(defaultApp.name);  // "[DEFAULT]"
-// var txtEmail = document.getElementById('txtemail');
-// var txtPassword = document.getElementById('txtpassword');
-// const btnLogin = document.getElementById('btnLogin');
-// const btnLogout = document.getElementById('btnLogout');
-// You can retrieve services via the defaultApp variable...
-// var defaultStorage = defaultApp.storage();
-// var defaultDatabase = defaultApp.database();
-
-
-//login event
-// btnLogin.addEventListener('click',e=>{
-//  const email = txtEmail.value;
-//  const pass = txtPassword.value;
-//  const auth = firebase.auth();
-//  //sign in
-//  const promise = auth.signInWithEmailAndPassword(email,pass);
-//  promise.catch(e=> console.log(e.message));
-// })
-
-// btnLogout.addEventListener('click', e=>{
-//  firebase.auth().signOut();
-// })
-
+ var defaultApp = firebase.initializeApp(config);
 
 /*
  * Login/Signout functionalities and functions below
@@ -74,55 +48,33 @@
  		console.log(error.message)
  	});
  }
-// var provider = new firebase.auth.GoogleAuthProvider();
-// function googleSignin() {
-//    firebase.auth()
 
-//    .signInWithPopup(provider).then(function(result) {
-//       var token = result.credential.accessToken;
-//       var user = result.user;
+ /*
+  * This is the creation of the initial watched list for users given a default value with Tom Brady
+  */
+ var InitialPlayer = '{"Player3" : {"age" : "34", "height" : "' + "6'" + '1", "img" : "images/tombrady.png", "team" : "Patriots", "name" : "Tom Brady", "position" : "Quarterback", "stats" : {"ATT" : "560", "CMP" : "357", "PCT" : "63.6", "YDS" : "3510"}}}';
+ var initialArray = JSON.parse(InitialPlayer);
+ function createNewUserWatchlist(userID){
+ 	firebase.database().ref('users/'+userID).set({
+ 		UserWatchList:initialArray
+ 	});
+ }
 
-//       console.log(token)
-//       console.log(user)
-//    }).catch(function(error) {
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-
-//       console.log(error.code)
-//       console.log(error.message)
-//    });
-// }
-var InitialPlayer = '{"Player": {"name" : "Tom Brady", "position" : "Quarterback", "height" : "' + "5'" + '10", "age" : "34", "stats" :{"CUP" : "10", "ATT" : "113", "YDS" : "112", "CMP" : "52"}}}';
-var initialArray = JSON.parse(InitialPlayer);
-function createNewUserWatchlist(userID){
-	firebase.database().ref('users/'+userID).set({
-		UserWatchList:{initialArray}
-	});
-}
-
-firebase.auth().onAuthStateChanged(function(user) {
-	if(user) {
-		console.log("hello");
-		console.log(user);
-		const rootRef = firebase.database().ref();
-		rootRef.once('value', function(snapshot) {
-			if (snapshot.hasChild("users/"+user.uid)) {
-
-			}
-			else
-			{
-				firebase.database().ref('/users/'+user.uid).set({
-					UserWatchList:[]
-
-				});
-			}
-		})
-   // rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-   //      if snapshot.hasChild(user.uid){
-   //       createNewUserWatchList(user.uid)
-   //      }else{
-   //      }
-   //  })
-   window.location = './homeBS.html';
-}
-});
+ firebase.auth().onAuthStateChanged(function(user) {
+ 	if(user) {
+ 		console.log("hello");
+ 		console.log(user);
+ 		const rootRef = firebase.database().ref();
+ 		rootRef.once('value', function(snapshot) {
+ 			if (snapshot.hasChild("users/"+user.uid)) {
+ 			}
+ 			else
+ 			{
+ 				firebase.database().ref('/users/'+user.uid).set({
+ 					UserWatchList:[]
+ 				});
+ 			}
+ 		})
+ 		window.location = './homeBS.html';
+ 	}
+ });

@@ -1,3 +1,7 @@
+<!--
+	This is the basic application registration page. Look at the bottom to edit and add features.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +27,11 @@
 			storageBucket: "cse-134b-103ee.appspot.com",
 			messagingSenderId: "737274665905"
 		};
-	  //firebase.initializeApp(config);
 
 	  // Initialize the default app
 	  var defaultApp = firebase.initializeApp(config);
 
-		// You can retrieve services via the defaultApp variable...
-		//var defaultStorage = defaultApp.storage();
+		// You can retrieve services via the defaultApp variable here
 		var defaultDatabase = defaultApp.database();
 		function send() {
 			var email =document.forms["thisForm"]["loginID"].value;
@@ -55,11 +57,9 @@
 			  } else {
 			  	alert(errorMessage);
 			  }
-			  // ...
+			  // ... Add more alerts here in the future if you decide to report other errors
 			});
-
 		}
-
 
 	</script>
 
@@ -76,7 +76,6 @@
 			left: 0;
 			width: 150px;
 			height: 150px;
-
 		}
 
 		input{
@@ -86,7 +85,6 @@
 			font-size: 16px;
 			display: inline-block;
 			float: left;
-
 		}
 
 		#registerB{
@@ -102,6 +100,11 @@
 		}
 	</style>
 </head>
+
+<!--
+	Form attributes here if you want to decide to change and add features or requirements in the future.
+-->
+
 <body>
 	<div class="center">
 		<p>	Register Below! </p>

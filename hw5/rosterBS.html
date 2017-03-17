@@ -1,4 +1,10 @@
-
+<!--
+	This file is the bulk of our Website. This page provides most of the functionality such
+	as creation of the roster by getting the information from the JSON file. We determine what
+	team and players we deal with by matching up attribuates with the players and teams that
+	we want. We also have set and and add player in this file. These functions had to stringify
+	and work with the JSON objects.
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,251 +22,279 @@
 
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script src="logout.js"></script>
+
 	<script>
 		function loadRoster() {
-			var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
-					  	//var userId = firebase.auth().currentUser.uid;
-					  	firebase.database().ref('/players/').once('value').then(function(snapshot) {
-					  		var divRoster = document.getElementById("roster");
-					  		var username = snapshot.val();
-					  		var start = '<h5>Quarterbacks</h5>';
-					  		var begAnchor = '<a href="player_statsBS.html">';
-					  		var fig = '<figure>';
-					  		var img = '<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">';
-					  		var begFig = '<figure>';
-					  		var endFig = '</figure>';
-					  		var FirstAppend = '<button type="input" onclick = "AddPlayerToList(\'';
-					  		var SecondAppend = '\')"> Add </button>'; 
-					  		var endAnchor = '</a>';
-					  		for(x in username) {
-					  			
-					  			var name = username[x].name;
-					  			start += begAnchor + fig + img + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend ;
-			  					// create the player button
+			var userId = sessionStorage.getItem('uid');
+			firebase.database().ref('/players/').once('value').then(function(snapshot) {
+				var team = sessionStorage.getItem('team');
+				var divRoster = document.getElementById("roster");
+				var divRoster1 = document.getElementById("roster1");
+				var divRoster2 = document.getElementById("roster2");
+				var divRoster3 = document.getElementById("roster3");
+				var divRoster4 = document.getElementById("roster4");
+				var divRoster5 = document.getElementById("roster5");
+				var divRoster6 = document.getElementById("roster6");
+				var username = snapshot.val();
+				var start = '<h5>Quarterbacks</h5>';
+				var start1 = '<h5>Wide Receivers</h5>';
+				var start2 = '<h5>Running Backs</h5>';
+				var start3 = '<h5>Defensive Backs</h5>';
+				var start4 = '<h5>Defensive Linemen</h5>';
+				var start5 = '<h5>Linebackers</h5>';
+
+				var beginButton = '<button class="btn btn-default" onclick="setPlayer(';
+				var endButton = ')">';
+
+				var fig = '<figure>';
+				var img = '<img src="';
+				var img2 = '" alt="Phillip Rivers Image Goes Here" height="42" width="42">';
+				var begFig = '<figure>';
+				var endFig = '</figure>';
+				var FirstAppend = '<button type="input" onclick = "AddPlayerToList(\'';
+				var SecondAppend = '\')"> Add </button>'; 
+				var endAnchor = '</button>';
+
+				var GetTeamName;
+				if(team == "Steelers"){
+					GetTeamName = "Pittsburgh Steelers";
+				}
+				if(team == "Ravens"){
+					GetTeamName = "Baltimore Ravens";
+				}
+				if(team == "Bengals"){
+					GetTeamName = "Cincinnati Bengals";
+				}
+				if(team == "Browns"){
+					GetTeamName = "Cleveland Browns";
+				}
+				if(team == "Bills"){
+					GetTeamName = "Buffalo Bills";
+				}
+				if(team == "Dolphins"){
+					GetTeamName = "Miami Dolphins";
+				}
+				if(team == "Patriots"){
+					GetTeamName = "New England Patriots";
+				}
+				if(team == "Jets"){
+					GetTeamName = "New York Jets";
+				}
+				if(team == "Texans"){
+					GetTeamName = "Houston Texans";
+				}
+				if(team == "Colts"){
+					GetTeamName = "Indianapolis Colts";
+				}
+				if(team == "Jaguars"){
+					GetTeamName = "Jacksonville Jaguars";
+				}
+				if(team == "Titans"){
+					GetTeamName = "Tennessee Titans";
+				}
+				if(team == "Chiefs"){
+					GetTeamName = "Kansas City Chiefs";
+				}
+				if(team == "Chargers"){
+					GetTeamName = "Los Angeles Chargers";
+				}
+				if(team == "Raiders"){
+					GetTeamName = "Oakland Raiders";
+				}
+				if(team == "Broncos"){
+					GetTeamName = "Denver Broncos";
+				}
+
+				document.getElementById("header1").innerHTML = GetTeamName;
+				var StringObject = JSON.stringify(username);
+				sessionStorage.setItem('playerArray', StringObject); 
+
+				for(x in username) {
+					if(username[x].team == team && username[x].position == 'Quarterback') {
+						var name = username[x].name;
+						var GetPlayerPicture = username[x].img;
+
+						console.log(StringObject);
+						start += beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
+			  						// create the player button
+			  					}
 			  				}
 			  				divRoster.innerHTML = start;
+
+			  				for(x in username) {
+			  					if(username[x].team == team && username[x].position == 'Widereceiver') {
+			  						var name = username[x].name;
+			  						var GetPlayerPicture = username[x].img;
+			  						start1 += beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
+			  						// create the player button
+			  					}
+			  				}
+			  				divRoster1.innerHTML = start1;
+
+			  				for(x in username) {
+			  					if(username[x].team == team && username[x].position == 'Runningback') {
+			  						var name = username[x].name;
+			  						var GetPlayerPicture = username[x].img;
+			  						start2 += beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
+			  						// create the player button
+			  					}
+			  				}
+			  				divRoster2.innerHTML = start2;
+
+			  				for(x in username) {
+			  					if(username[x].team == team && username[x].position == 'Defensiveback') {
+			  						var name = username[x].name;
+			  						var GetPlayerPicture = username[x].img;
+			  						start3 += beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
+			  						// create the player button
+			  					}
+			  				}
+			  				divRoster3.innerHTML = start3;
+
+			  				for(x in username) {
+			  					if(username[x].team == team && username[x].position == 'Defensivelinemen') {
+			  						var name = username[x].name;
+			  						var GetPlayerPicture = username[x].img;
+			  						start4 += beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
+			  						// create the player button
+			  					}
+			  				}
+			  				divRoster4.innerHTML = start4;
+
+			  				for(x in username) {
+			  					if(username[x].team == team && username[x].position == 'Lineback') {
+			  						var name = username[x].name;
+			  						var GetPlayerPicture = username[x].img;
+			  						start5 += beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + FirstAppend + x + SecondAppend;
+			  						// create the player button
+			  					}
+			  				}
+			  				divRoster5.innerHTML = start5;
 			  			});
-					  }
-					  loadRoster();
+}
+loadRoster();
 
-					  function AddPlayerToList(AddedPerson){
-					  	var userId = "EO1Ks5BQCFdK0Ys7Jk7hxSSzSON2";
-					  	firebase.database().ref('/players/' + AddedPerson).once('value').then(function(snapshot){
-					  		var newPlayer = snapshot.val();
-					  		firebase.database().ref('users/' + userId + '/UserWatchList/' + AddedPerson).set({
-					  			age: newPlayer.age,
-					  			height: newPlayer.height,
-					  			name : newPlayer.name,
-					  			position : newPlayer.position,
-					  			stats : newPlayer.stats
+function AddPlayerToList(AddedPerson){
+	var userId = sessionStorage.getItem('uid');
+	firebase.database().ref('/players/' + AddedPerson).once('value').then(function(snapshot){
+		var newPlayer = snapshot.val();
+		firebase.database().ref('users/' + userId + '/UserWatchList/' + AddedPerson).set({
+			age: newPlayer.age,
+			height: newPlayer.height,
+			name : newPlayer.name,
+			position : newPlayer.position,
+			team : newPlayer.team,
+			img : newPlayer.img,
+			stats : newPlayer.stats
 
-					  		});
-					  		alert("Inserted " + newPlayer.name);
-					  	});
+		});
+		alert("Inserted " + newPlayer.name);
+	});
 
-					  }
-					</script>
-					<style>
-						html, body {
-							margin: 0;
-							height: 100%;
-						}
-						body {
-							background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url('images/nfl-football-field.jpg');
-							background-repeat: no-repeat;
-       		 				background-position: center center;
-       		 				background-attachment: fixed;
-                            -webkit-background-size: cover;
-                            -moz-background-size: cover;
-                            -o-background-size: cover;
-                            background-size: cover;
-						}
-						h1 {
-							text-align: center;
-							background-color:rgba(255, 255, 255, 0.75);
-							width: 35%;
-							margin-right: auto;
-							margin-left: auto;
-						}
+}
 
-						h5 {
-							text-align: center;
-						}
+function setPlayer(position) {
+	var j = JSON.parse(sessionStorage.getItem('playerArray'));
+	alert(JSON.stringify(j[position]));
+	sessionStorage.setItem('playerObject', JSON.stringify(j[position])); 
+	location.href='/hmwk5/player_statsBS.html';
+}
+</script>
+<style>
+	html, body {
+		margin: 0;
+		height: 100%;
+	}
+	body {
+		background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("images/nfl-football-field.jpg");
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	h1 {
+		text-align: center;
+		background-color:rgba(255, 255, 255, 0.75);
+		width: 35%;
+		margin-right: auto;
+		margin-left: auto;
+	}
 
-						div.col-md-4 {
-							text-align: center;
-						}
+	h5 {
+		text-align: center;
+	}
+
+	div.col-md-4 {
+		text-align: center;
+	}
 
 
-					</style>
-				</head>
-				<body>
-					<nav class="navbar navbar-inverse">
-						<div class="container-fluid">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-								<a class="navbar-brand" href="homeBS.html">Home</a>
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="homeBS.html">Home</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="Choose_teamBS.html">Choose Team</a></li>
+					<li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
+					<li>
+						<form class="navbar-form navbar-left" action="search_resultsBS.html">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
 							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</li>
+					<li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
 
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								
-								
-								<ul class="nav navbar-nav navbar-right">
-									<li><a href="Choose_teamBS.html">Choose Team</a></li>
-									<li><a href="Choose_positionBS.html">Choose Players By Position</a></li>
-									<li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
-									<li>
-										<form class="navbar-form navbar-left">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Search">
-											</div>
-											<a href="search_resultsBS.html" type="submit" class="btn btn-default">Submit</a>
-										</form>
-									</li>
-									<li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
-								</ul>
-							</div><!-- /.navbar-collapse -->
-						</div><!-- /.container-fluid -->
-					</nav>
+	<!-- Title -->
+	<h1 id="header1"></h1>
 
-					<!-- Title -->
-					<h1>San Diego Chargers</h1>
+	<!-- roster -->
+	<!-- QB -->
+	<div class="row" style="width:80%; margin:auto;background-color:rgba(255, 255, 255, 0.75);">
+		<div class="col-md-4" id="roster" onload="loadRoster()">
 
-					<!-- roster -->
-					<!-- QB -->
-					<div class="row" style="width:80%; margin:auto;background-color:rgba(255, 255, 255, 0.75);">
-						<div class="col-md-4" id="roster" onload="loadRoster()">
-<!-- 					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">
-							<figcaption>name</figcaption>
-						</figure>
-					</a> -->
-<!-- 					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Kellen Clemens Image Goes Here" height="42" width="42">
-							<figcaption>Kellen Clemens</figcaption>
-						</figure>
-					</a> -->
-				</div>
-				<div class="col-md-4">
-					<h5>Wide Recievers</h5>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Keenan Allen Image Goes Here" height="42" width="42">
-							<figcaption>Kennan Allen</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Tyrell Williams goes here" height="42" width="42">
-							<figcaption>Tyrell Williams</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Travis Benjamin goes here" height="42" width="42">
-							<figcaption>Travis Benjamin</figcaption>
-						</figure>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<h5>Running Backs</h5>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Melvin Gordon Image Goes Here" height="42" width="42">
-							<figcaption>Melvin Gordon</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Danny Woodhead goes here" height="42" width="42">
-							<figcaption>Danny Woodhead</figcaption>
-						</figure>
-					</a>
-				</div>
-			</div>
+		</div>
+		<div class="col-md-4" id="roster1" onload="loadRoster()">
 
-			<div class="row" style="width:80%; margin-left:auto;margin-right:auto;margin-top:10px;background-color:rgba(255, 255, 255, 0.75);">
-				<div class="col-md-4">
-					<h5>Center</h5>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Phillip Rivers Image Goes Here" height="42" width="42">
-							<figcaption>Phillip Rivers</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Kellen Clemens Image Goes Here" height="42" width="42">
-							<figcaption>Kellen Clemens</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Danny Woodhead goes here" height="42" width="42">
-							<figcaption>Danny Woodhead</figcaption>
-						</figure>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<h5>Guards</h5>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Keenan Allen Image Goes Here" height="42" width="42">
-							<figcaption>Kennan Allen</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Tyrell Williams goes here" height="42" width="42">
-							<figcaption>Tyrell Williams</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Travis Benjamin goes here" height="42" width="42">
-							<figcaption>Travis Benjamin</figcaption>
-						</figure>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<h5>Tackles</h5>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Melvin Gordon Image Goes Here" height="42" width="42">
-							<figcaption>Melvin Gordon</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Danny Woodhead goes here" height="42" width="42">
-							<figcaption>Danny Woodhead</figcaption>
-						</figure>
-					</a>
-					<a href="player_statsBS.html">
-						<figure>
-							<img src="images/generic.png" alt="Danny Woodhead goes here" height="42" width="42">
-							<figcaption>Danny Woodhead</figcaption>
-						</figure>
-					</a>
-				</div>
-			</div>
-			
+		</div>
+		<div class="col-md-4" id="roster2" onload="loadRoster()">
 
+		</div>
+	</div>
 
-			<!-- Wide Recievers -->
+	<div class="row" style="width:80%; margin-left:auto;margin-right:auto;margin-top:10px;background-color:rgba(255, 255, 255, 0.75);">
+		<div class="col-md-4" id="roster3" onload="loadRoster()">
 
+		</div>
+		<div class="col-md-4" id="roster4" onload="loadRoster()">
 
-			<!-- RB -->
-
-		</body>
-
-		</html>
+		</div>
+		<div class="col-md-4" id="roster5" onload="loadRoster()">
+		</div>
+	</div>
+</body>
+</html>
