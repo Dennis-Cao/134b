@@ -53,6 +53,7 @@
                 var GetPlayerPicture = username.UserWatchList[x].img;
                 start += begdiv + beginButton  + "'" + x + "'" + endButton + fig + img + GetPlayerPicture + img2 + begFig + name + endFig + endAnchor + endDiv;
             }
+
         }
         divRoster.innerHTML = start + buttons;
     });
@@ -66,9 +67,19 @@
 
         function setPlayer(position) {
             var j = JSON.parse(sessionStorage.getItem('playerArray'));
-                        //alert(JSON.stringify(j[position]));
+                        if(j != null) {     
                         sessionStorage.setItem('playerObject', JSON.stringify(j[position])); 
-                        location.href='/hmwk5/player_statsBS.html';
+                        location.href='/hmwk5/player_statsBS.html';}
+
+                        else {
+                        var userId = firebase.auth().currentUser.uid;
+                        firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+                            var username = snapshot.val();
+                            j = username.UserWatchList[position];
+                            sessionStorage.setItem('playerObject', JSON.stringify(j));
+                            location.href='/hmwk5/player_statsBS.html';
+                        });
+                    }
                     }
                 </script>
                 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
