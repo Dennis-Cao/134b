@@ -1,3 +1,9 @@
+<!--
+	This page uses session storage features of JavaScript to get the name of teams that we
+	want to pass on to other pages. Look here if problem with JSON objects related with team
+	name and if you want to add other NFL teams.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +15,14 @@
 
 	<style type="text/css">
 		body{
-			background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("images/mason.jpg");
+			background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)), url("images/mason.jpg");
 			background-repeat: no-repeat;
-			background-size: 100%;
+			background-position: center center;
 			background-attachment: fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 		}
 		tr.nav {
 			list-style-type: none;
@@ -50,116 +60,45 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="homeBS.html">Home</a>
-        </div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="homeBS.html">Home</a>
+			</div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          
-          
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="Choose_teamBS.html">Choose Team</a></li>
-            <li><a href="Choose_positionBS.html">Choose Position</a></li>
-            <li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
-            <li>
-                <form class="navbar-form navbar-left" action="search_resultsBS.html">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </li>
-            <li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="Choose_teamBS.html">Choose Team</a></li>
+					<li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
+					<li>
+						<form class="navbar-form navbar-left" action="search_resultsBS.html">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					</li>
+					<li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<!-- Can add more teams here if needed -->
+
 	<div class="container-fluid">
-		<h1> NFL TEAMS </h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th> AFC North </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
-						</figure>
-					</a> </td>
-				</tr>
-			</tbody>
-		</table>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th> AFC East </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
-						</figure>
-					</a> </td>
-				</tr>
-			</tbody>
-		</table>
-
+		<h1> NFL AFC TEAMS </h1>
+		
 		<table class="table">
 			<thead>
 				<tr>
@@ -169,30 +108,30 @@
 			<tbody>
 				<tr>
 					<td> </td>
-					<td> <a href="rosterBS.html">
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Texans'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
+							<img src = "images/texans.png" width = "80" height = "80">
+							<figcaption> Houston Texans </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Colts'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
+							<img src = "images/colts.png" width = "80" height = "80">
+							<figcaption> Indianapolis Colts </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Jaguars'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
+							<img src = "images/jaguars.png" width = "80" height = "80">
+							<figcaption> Jacksonville Jaguars </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Titans'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
+							<img src = "images/titans.png" width = "80" height = "80">
+							<figcaption> Tennessee Titans </figcaption>
 						</figure>
-					</a> </td>
+					</button> </td>
 				</tr>
 			</tbody>
 		</table>
@@ -206,30 +145,30 @@
 			<tbody>
 				<tr>
 					<td> </td>
-					<td> <a href="rosterBS.html">
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Broncos'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
+							<img src = "images/broncos.png" width = "80" height = "80">
+							<figcaption> Denver Broncos </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Chiefs'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
+							<img src = "images/chiefs.png" width = "80" height = "80">
+							<figcaption> Kansas City Chiefs </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Chargers'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
+							<img src = "images/chargers.png" width = "80" height = "80">
+							<figcaption> Los Angeles Chargers </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Raiders'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
+							<img src = "images/raiders.png" width = "80" height = "80">
+							<figcaption> Oakland Raiders </figcaption>
 						</figure>
-					</a> </td>
+					</button> </td>
 				</tr>
 			</tbody>
 		</table>
@@ -237,36 +176,36 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th> NFC North </th>
+					<th> AFC North </th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td> </td>
-					<td> <a href="rosterBS.html">
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Steelers'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
 							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
+							<figcaption> Pittsburgh Steelers </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Ravens'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
 							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
+							<figcaption> Baltimore Ravens </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Bengals'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
 							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
+							<figcaption> Cincinnati Bengals </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Browns'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
 							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
+							<figcaption> Cleveland Browns </figcaption>
 						</figure>
-					</a> </td>
+					</button> </td>
 				</tr>
 			</tbody>
 		</table>
@@ -274,110 +213,36 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th> NFC North </th>
+					<th> AFC East </th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td> </td>
-					<td> <a href="rosterBS.html">
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Bills'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
+							<img src = "images/bills.png" width = "80" height = "80">
+							<figcaption> Buffalo Bills </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Dolphins'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
+							<img src = "images/dolphins.png" width = "80" height = "80">
+							<figcaption> Miami Dolphins </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Patriots'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
+							<img src = "images/patriots.png" width = "80" height = "80">
+							<figcaption> England Patriots </figcaption>
 						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
+					</button> </td>
+					<td> <button class="btn btn-default" onclick="sessionStorage.setItem('team', 'Jets'); location.href='/hmwk5/rosterBS.html';">
 						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
+							<img src = "images/jets.png" width = "80" height = "80">
+							<figcaption> New York Jets </figcaption>
 						</figure>
-					</a> </td>
-				</tr>
-			</tbody>
-		</table>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th> NFC North </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
-						</figure>
-					</a> </td>
-				</tr>
-			</tbody>
-		</table>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th> NFC North </th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/steelers.png" width = "80" height = "80">
-							<figcaption> pittsburgh steelers </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/ravens.png" width = "80" height = "80">
-							<figcaption> baltimore ravens </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/bengals.png" width = "80" height = "80">
-							<figcaption> cincinnati bengals </figcaption>
-						</figure>
-					</a> </td>
-					<td> <a href="rosterBS.html">
-						<figure>
-							<img src = "images/browns.png" width = "80" height = "80">
-							<figcaption> cleveland browns </figcaption>
-						</figure>
-					</a> </td>
+					</button> </td>
 				</tr>
 			</tbody>
 		</table>

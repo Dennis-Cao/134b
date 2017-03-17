@@ -29,10 +29,13 @@
 
 		body {
 			background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)),url('images/tomlinson.jpeg');
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
+			background-repeat: no-repeat;
+             background-position: center center;
+             background-attachment: fixed;
+             -webkit-background-size: cover;
+             -moz-background-size: cover;
+             -o-background-size: cover;
+             background-size: cover;
 		}
 
 		div.col-md-2 {
@@ -41,40 +44,39 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="homeBS.html">Home</a>
-			</div>
+	<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="homeBS.html">Home</a>
+        </div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				
-				
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="Choose_teamBS.html">Choose Team</a></li>
-					<li><a href="Choose_positionBS.html">Choose Players By Position</a></li>
-					<li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
-					<li>
-						<form class="navbar-form navbar-left">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<a href="search_resultsBS.html" type="submit" class="btn btn-default">Submit</a>
-						</form>
-					</li>
-					<li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
-	</nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="Choose_teamBS.html">Choose Team</a></li>
+            <li><a href="remove_playersBS.html">Remove Players from Watchlist</a></li>
+            <li>
+                <form class="navbar-form navbar-left" action="search_resultsBS.html">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </li>
+            <li><a href="#" onclick='signout()' id='btnLogout'>Logout</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 	<!-- title -->
 	<h1>Search Results</h1>
 	<div class="row" style="width:80%; margin-left:auto; margin-right:auto;background-color:rgba(255, 255, 255, 0.75);">

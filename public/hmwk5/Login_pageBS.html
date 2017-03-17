@@ -1,3 +1,8 @@
+<!--
+	Login page deals with both email and google login by using built in functions.
+	Refer to app.js and logout.js for more functionalities of logging in and out.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,14 +18,25 @@
 	<style type="text/css">
 		.modal-dialog{
 			background-color: lightblue;
-			margin-top: 12.5%;
+			margin-top: 10%;
 		}
 
 		body{
 			background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("images/aaron.png");
-			background-size: 100%;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 		}
-
+		h4{
+			text-align: center;
+		}
+		.modal-dialog {
+			background-color: black;
+		}
 	</style>
 
 	
@@ -55,20 +71,23 @@
 						<input type="button" class="btn btn-block btn-lg btn-primary" id="btnLogin" onclick='signin()'name ="submitvalue" value="Login">
 					</div>
 
-					<a href="register_pageBS.html"> <button class="btn btn-block btn-lg btn-primary" type="button"> Register </button> </a>
+					<div class="form-group">
+						<a href="register_pageBS.html"> <button class="btn btn-block btn-lg btn-primary" type="button"> Register </button> </a>
+					</div>
 				</form>
 
 				
 
 				<div class="modal-footer">
-					<div class="col-md-10">
-					</div>
+					<h4>
+						Already have a Google Account?
+					</h4>
 				</div>
-				<div class="form-group">
-				<button class="btn btn-block btn-lg btn-primary" onclick = "googleSignin();">Google Signin</button>
+				<div class="modal-body">
+					<button class="btn btn-block btn-lg btn-success" onclick = "googleSignin();">Google Signin</button>
 				</div>
 			</div>
-				
+
 		</div>
 	</div>
 </body>
